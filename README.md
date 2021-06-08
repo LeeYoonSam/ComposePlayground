@@ -6,9 +6,12 @@
 
 ### Animation
 
-[**Crossfade**](./app/src/main/java/com/ys/composeplayground/ui/animation/Crossfade.kt)
+[**Crossfade**](app/src/main/java/com/ys/composeplayground/ui/animation/Crossfade.kt)
 - Composable 전환시 Crossfade 애니메이션 효과를 적용
 - animationSpec 매개 변수를 사용하면 Composable 간에 전환하는 데 사용할 애니메이션을 설정할 수 있습니다.
+
+참고
+[Canvas](https://foso.github.io/Jetpack-Compose-Playground/foundation/canvas/)
 
 
 ### Foundation
@@ -16,3 +19,13 @@
 [**BaseTextField**](app/src/main/java/com/ys/composeplayground/ui/foundation/BaseTextField.kt)
 - [TextField](https://foso.github.io/Jetpack-Compose-Playground/material/textfield/)를 사용해서 text 표시
 - 기존의 EditText
+
+참고
+[BaseTextField](https://foso.github.io/Jetpack-Compose-Playground/foundation/basetextfield/)
+
+
+[**Canvas**](app/src/main/java/com/ys/composeplayground/ui/foundation/Canvas.kt)
+- drawRect, drawCircle, drawLine, drawArc 등으로 캔버스에 도형을 그리기
+
+참고
+[Canvas](https://foso.github.io/Jetpack-Compose-Playground/foundation/canvas/)
