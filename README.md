@@ -18,7 +18,7 @@
 
 [**BaseTextField**](app/src/main/java/com/ys/composeplayground/ui/foundation/BaseTextField.kt)
 - [TextField](https://foso.github.io/Jetpack-Compose-Playground/material/textfield/)를 사용해서 text 표시
-- 기존의 EditText
+- 기존의 EditText 와 유사
 
 참고
 [BaseTextField](https://foso.github.io/Jetpack-Compose-Playground/foundation/basetextfield/)
@@ -29,3 +29,12 @@
 
 참고
 [Canvas](https://foso.github.io/Jetpack-Compose-Playground/foundation/canvas/)
+
+
+[**Image**](app/src/main/java/com/ys/composeplayground/ui/foundation/ImageResource.kt)
+- painterResource 로 이미지 리소스 로드
+- Image 의 painter 에 넣어서 사용
+- 기존의 ImageView 와 유사
+
+참고
+[Image](https://foso.github.io/Jetpack-Compose-Playground/foundation/image/)
