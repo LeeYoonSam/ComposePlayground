@@ -49,3 +49,15 @@
 
 참고
 [LazyColumn](https://foso.github.io/Jetpack-Compose-Playground/foundation/lazycolumn/)
+
+
+[**LazyRow**](app/src/main/java/com/ys/composeplayground/ui/foundation/LazyColumn.kt)
+- LazyRow 현재 보이는 항목을 구성하고 배치하는 가로 스크롤 리스트
+- 기존 Android View 시스템의 Recyclerview와 유사
+- LazyListScope.items 확장함수를 사용해서 리스트 세팅
+  - items -> 리스트 데이터를 세팅
+  - itemContent -> 아이템 하나를 전달받아 뷰를 그리는 역할
+
+참고
+[LazyColumn](https://foso.github.io/Jetpack-Compose-Playground/foundation/lazyrow/)
+[Offical Docs](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary#lazyrow)
