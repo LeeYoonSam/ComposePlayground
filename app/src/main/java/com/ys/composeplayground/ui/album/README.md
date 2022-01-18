@@ -77,3 +77,8 @@ sealed class GridCells {
 
 1. GridCells.Fixed(count: Int) -> 갯수를 지정
 2. GridCells.Adaptive(minSize: Dp) -> 최소 크기를 지정
+
+### 앨범 리스트 구현
+
+참고
+- [안드로이드 - MediaStore에서 미디어 파일 정보 읽는 방법](https://codechacha.com/ko/android-mediastore-read-media-files/)

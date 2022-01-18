@@ -16,8 +16,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ys.composeplayground.R
-import com.ys.composeplayground.ui.album.data.Album
-import com.ys.composeplayground.ui.album.data.getAlbumSample
+import com.ys.composeplayground.ui.album.data.MediaStoreImage
+import com.ys.composeplayground.ui.album.data.ProviderMediaStoreImage
+import com.ys.composeplayground.ui.album.data.ProviderMediaStoreImage.getAlbumSample
+import com.ys.composeplayground.ui.album.data.queryImages
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -39,7 +41,7 @@ fun AlbumScreen() {
 }
 
 @Composable
-fun CardImageView(album: Album) {
+fun CardImageView(album: MediaStoreImage) {
     Card(
         backgroundColor = MaterialTheme.colors.primary,
         modifier = Modifier.padding(4.dp),
@@ -50,7 +52,7 @@ fun CardImageView(album: Album) {
 }
 
 @Composable
-private fun CardImageContent(album: Album) {
+private fun CardImageContent(album: MediaStoreImage) {
     val image: Painter = painterResource(id = R.drawable.composelogo)
 
     Image(
@@ -62,7 +64,7 @@ private fun CardImageContent(album: Album) {
 @Preview
 @Composable
 fun PreviewCardImageView() {
-    CardImageView(album = Album(0, "testPath"))
+    CardImageView(album = MediaStoreImage(0, "testPath"))
 }
 
 @Preview
