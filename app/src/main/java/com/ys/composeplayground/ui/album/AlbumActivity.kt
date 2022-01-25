@@ -10,22 +10,30 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.ys.composeplayground.ui.album.data.MediaStoreImage
+import com.ys.composeplayground.ui.album.data.ProviderMediaStoreImage
 import com.ys.composeplayground.ui.album.data.queryImages
 import com.ys.composeplayground.ui.theme.ComposePlaygroundTheme
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class AlbumActivity : ComponentActivity() {
+
+    private val mediaList = mutableStateListOf<MediaStoreImage>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+
             ComposePlaygroundTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    AlbumScreen()
+                    AlbumScreen(mediaList)
                 }
             }
         }
@@ -64,8 +72,11 @@ class AlbumActivity : ComponentActivity() {
 
     private fun showImages() {
         GlobalScope.launch {
-            val images = queryImages(contentResolver = contentResolver)
-            println("queryImages: $images")
+            val images = async(Dispatchers.Default) {
+                queryImages(contentResolver = contentResolver)
+            }.await()
+
+            mediaList.addAll(images)
         }
     }
 

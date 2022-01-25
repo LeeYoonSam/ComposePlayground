@@ -2,6 +2,7 @@ package com.ys.composeplayground.ui.album.data
 
 import android.annotation.SuppressLint
 import android.content.ContentResolver
+import android.database.Cursor
 import android.net.Uri
 import android.provider.MediaStore
 import android.util.Log
@@ -17,7 +18,8 @@ suspend fun queryImages(contentResolver: ContentResolver): List<MediaStoreImage>
         val projection = arrayOf(
             MediaStore.Images.Media._ID,
             MediaStore.Images.Media.DISPLAY_NAME,
-            MediaStore.Images.Media.DATE_TAKEN
+            MediaStore.Images.Media.DATE_TAKEN,
+            MediaStore.Images.Media.DATA
         )
         val selection = "${MediaStore.Images.Media.DATE_TAKEN} >= ?"
         val selectionArgs = arrayOf(
@@ -37,16 +39,20 @@ suspend fun queryImages(contentResolver: ContentResolver): List<MediaStoreImage>
                 cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATE_TAKEN)
             val displayNameColumn =
                 cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DISPLAY_NAME)
+            val pathColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+
             while (cursor.moveToNext()) {
                 val id = cursor.getLong(idColumn)
                 val dateTaken = Date(cursor.getLong(dateTakenColumn))
                 val displayName = cursor.getString(displayNameColumn)
+                val path = cursor.getString(pathColumn)
+
                 val contentUri = Uri.withAppendedPath(
                     MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
                     id.toString()
                 )
 
-                val image = MediaStoreImage(id, displayName, dateTaken, contentUri)
+                val image = MediaStoreImage(id, displayName, dateTaken, path, contentUri)
                 images += image
                 Log.d("queryImages", image.toString())
             }

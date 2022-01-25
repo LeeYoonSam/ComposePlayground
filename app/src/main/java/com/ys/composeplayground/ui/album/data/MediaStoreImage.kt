@@ -2,14 +2,16 @@ package com.ys.composeplayground.ui.album.data
 
 import android.net.Uri
 import androidx.recyclerview.widget.DiffUtil
+import java.io.Serializable
 import java.util.*
 
 data class MediaStoreImage(
     val id: Long,
     val displayName: String,
     val dateTaken: Date? = null,
+    val imagePath: String? = null,
     val contentUri: Uri? = null
-) {
+) : Serializable {
     companion object {
         val DiffCallback = object : DiffUtil.ItemCallback<MediaStoreImage>() {
             override fun areItemsTheSame(oldItem: MediaStoreImage, newItem: MediaStoreImage) =
