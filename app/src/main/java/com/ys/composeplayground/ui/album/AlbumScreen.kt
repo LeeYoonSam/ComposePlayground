@@ -6,29 +6,31 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Card
-import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.MaterialTheme
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil.compose.ImagePainter
 import coil.compose.rememberImagePainter
-import coil.size.Scale
 import com.ys.composeplayground.R
 import com.ys.composeplayground.ui.album.data.MediaStoreImage
 import com.ys.composeplayground.ui.album.data.ProviderMediaStoreImage
+
+const val GRID_FIXED_COUNT = 3
+val GRID_CONTENT_PADDING = 4.dp
+val GRID_PADDING = 4.dp
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun AlbumScreen(albumList: List<MediaStoreImage>) {
 
     LazyVerticalGrid(
-        cells = GridCells.Fixed(3),
-        contentPadding = PaddingValues(6.dp),
+        cells = GridCells.Fixed(GRID_FIXED_COUNT),
         content = {
             items(
                 items = albumList,
@@ -36,16 +38,15 @@ fun AlbumScreen(albumList: List<MediaStoreImage>) {
                     CardImageView(album = item)
                 }
             )
-        }
+        },
+        contentPadding = PaddingValues(GRID_CONTENT_PADDING)
     )
 }
 
 @Composable
 fun CardImageView(album: MediaStoreImage) {
-    Card(
-        backgroundColor = MaterialTheme.colors.primary,
-        modifier = Modifier.padding(4.dp),
-        elevation = 4.dp
+    Column(
+        Modifier.padding(GRID_PADDING)
     ) {
         CardImageContent(album = album)
     }
@@ -55,29 +56,24 @@ fun CardImageView(album: MediaStoreImage) {
 private fun CardImageContent(album: MediaStoreImage) {
 
     val painter = rememberImagePainter(
-        data = album.contentUri,
-        onExecute = ImagePainter.ExecuteCallback { _, _ -> true },
-        builder = {
-            scale(Scale.FILL)
-        }
+        data = album.contentUri
     )
 
-    Box(modifier = Modifier.size(100.dp)) {
+    val configuration = LocalConfiguration.current
+    val screenWidth = configuration.screenWidthDp.dp
+    val totalPadding = (GRID_FIXED_COUNT + 1) * (GRID_CONTENT_PADDING.value + GRID_PADDING.value)
+    val size = (screenWidth - totalPadding.dp) / GRID_FIXED_COUNT
+
+    Box(modifier = Modifier.size(size)) {
         Image(
             painter = painter,
             contentDescription = stringResource(R.string.app_name),
-            modifier = Modifier.align(Alignment.Center)
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.Center)
+                .clip(RoundedCornerShape(5.dp)),
+            contentScale = ContentScale.Crop
         )
-
-        when (painter.state) {
-            is ImagePainter.State.Loading -> {
-                // Display a circular progress indicator whilst loading
-                CircularProgressIndicator(Modifier.align(Alignment.Center))
-            }
-            is ImagePainter.State.Error -> {
-                // If you wish to display some content if the request fails
-            }
-        }
     }
 }
 
