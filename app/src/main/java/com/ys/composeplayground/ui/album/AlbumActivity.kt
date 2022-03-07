@@ -1,6 +1,7 @@
 package com.ys.composeplayground.ui.album
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.net.Uri
@@ -104,6 +105,8 @@ class AlbumActivity : ComponentActivity() {
 
     companion object {
         private const val READ_EXTERNAL_STORAGE_REQUEST = 0x1045
+
+        fun newIntent(context: Context) = Intent(context, AlbumActivity::class.java)
     }
 }
 
