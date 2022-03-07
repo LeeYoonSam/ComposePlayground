@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ys.composeplayground.ui.album.AlbumActivity
+import com.ys.composeplayground.ui.navigation.BottomNavigationAnimationActivity
 import com.ys.composeplayground.ui.theme.ComposePlaygroundTheme
 
 class MainActivity : ComponentActivity() {
@@ -35,6 +36,7 @@ class MainActivity : ComponentActivity() {
     private fun routeToActivity(position: Int) {
         when (position) {
             0 -> startActivity(AlbumActivity.newIntent(this))
+            6 -> startActivity(BottomNavigationAnimationActivity.newIntent(this))
             else -> {
 
             }
@@ -74,7 +76,8 @@ class MainActivity : ComponentActivity() {
         Menu(2, "BaseTextField"),
         Menu(3, "Canvas"),
         Menu(4, "Image"),
-        Menu(5, "LazyColumn")
+        Menu(5, "LazyColumn"),
+        Menu(6, "BottomNavigationAnimation"),
     )
 
     data class Menu(
