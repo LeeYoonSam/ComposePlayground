@@ -5,7 +5,12 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -29,6 +34,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.dp
@@ -106,32 +112,46 @@ class BottomNavigationAnimationActivity : AppCompatActivity() {
         screen: Screen,
         isSelected: Boolean
     ) {
+        val animatedHeight by animateDpAsState(targetValue = if (isSelected) 36.dp else 26.dp)
+        val animatedElevation by animateDpAsState(targetValue = if (isSelected) 15.dp else 0.dp)
+        val animatedAlpha by animateFloatAsState(targetValue = if (isSelected) 1f else .5f)
+        val animatedIconSize by animateDpAsState(
+            targetValue = if (isSelected) 26.dp else 20.dp,
+            animationSpec = spring(
+                stiffness = Spring.StiffnessLow,
+                dampingRatio = Spring.DampingRatioMediumBouncy
+            )
+        )
+
         Box(
             modifier = modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
             Row(
                 modifier = Modifier
-                    .height(if (isSelected) 36.dp else 26.dp)
+                    .height(animatedHeight)
                     .shadow(
-                        elevation = if (isSelected) 15.dp else 0.dp,
+                        elevation = animatedElevation,
                         shape = RoundedCornerShape(20.dp)
                     ),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center
             ) {
-                Icon(
-                    rememberVectorPainter(image = if (isSelected) screen.activeIcon else screen.inactiveIcon),
-                    contentDescription = screen.title,
+
+                FlipIcon(
                     modifier = Modifier
                         .align(Alignment.CenterVertically)
                         .fillMaxHeight()
                         .padding(start = 11.dp)
-                        .alpha(if (isSelected) 1f else .5f)
-                        .size(if (isSelected) 26.dp else 20.dp)
+                        .alpha(animatedAlpha)
+                        .size(animatedIconSize),
+                    isActive = isSelected,
+                    activeIcon = screen.activeIcon,
+                    inactiveIcon = screen.inactiveIcon,
+                    contentDescription = screen.title
                 )
 
-                if (isSelected) {
+                AnimatedVisibility(visible = isSelected) {
                     Text(
                         text = screen.title,
                         modifier = Modifier.padding(start = 8.dp, end = 10.dp),
@@ -140,7 +160,33 @@ class BottomNavigationAnimationActivity : AppCompatActivity() {
                 }
             }
         }
+    }
 
+    @Composable
+    fun FlipIcon(
+        modifier: Modifier = Modifier,
+        isActive: Boolean,
+        activeIcon: ImageVector,
+        inactiveIcon: ImageVector,
+        contentDescription: String,
+    ) {
+        val animationRotation by animateFloatAsState(
+            targetValue = if (isActive) 180f else 0f,
+            animationSpec = spring(
+                stiffness = Spring.StiffnessLow,
+                dampingRatio = Spring.DampingRatioMediumBouncy
+            )
+        )
+        
+        Box(
+            modifier = modifier.graphicsLayer { rotationY = animationRotation },
+            contentAlignment = Alignment.Center
+        ) {
+            Icon(
+                rememberVectorPainter(image = if (animationRotation > 90f) activeIcon else inactiveIcon),
+                contentDescription = contentDescription,
+            )
+        }
     }
 
     sealed class Screen(
