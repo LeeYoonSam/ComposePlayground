@@ -20,7 +20,7 @@ fun LazyColumnDemo() {
     ) + ((0..100).map { it.toString() })
 
     LazyColumn(
-        modifier = Modifier.fillMaxHeight()
+        modifier = Modifier.fillMaxSize()
     ) {
         items(items = list, itemContent =  { item ->
             Log.d("COMPOSE", "This get rendered $item")

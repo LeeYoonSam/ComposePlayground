@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ys.composeplayground.ui.album.AlbumActivity
+import com.ys.composeplayground.ui.foundation.FoundationActivity
 import com.ys.composeplayground.ui.navigation.BottomNavigationAnimationActivity
 import com.ys.composeplayground.ui.theme.ComposePlaygroundTheme
 
@@ -36,7 +37,14 @@ class MainActivity : ComponentActivity() {
     private fun routeToActivity(position: Int) {
         when (position) {
             0 -> startActivity(AlbumActivity.newIntent(this))
-            6 -> startActivity(BottomNavigationAnimationActivity.newIntent(this))
+            1 -> {}
+            2 -> startActivity(FoundationActivity.newIntent(this, 0))
+            3 -> startActivity(FoundationActivity.newIntent(this, 1))
+            4 -> startActivity(FoundationActivity.newIntent(this, 2))
+            5 -> startActivity(FoundationActivity.newIntent(this, 3))
+            6 -> startActivity(FoundationActivity.newIntent(this, 4))
+            7 -> startActivity(FoundationActivity.newIntent(this, 5))
+            8 -> startActivity(BottomNavigationAnimationActivity.newIntent(this))
             else -> {
 
             }
@@ -77,7 +85,9 @@ class MainActivity : ComponentActivity() {
         Menu(3, "Canvas"),
         Menu(4, "Image"),
         Menu(5, "LazyColumn"),
-        Menu(6, "BottomNavigationAnimation"),
+        Menu(6, "LazyRow"),
+        Menu(7, "LazyVerticalGrid"),
+        Menu(8, "BottomNavigationAnimation"),
     )
 
     data class Menu(
