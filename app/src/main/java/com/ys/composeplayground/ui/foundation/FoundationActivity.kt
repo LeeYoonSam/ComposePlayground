@@ -26,6 +26,7 @@ class FoundationActivity : AppCompatActivity() {
                         3 -> LazyColumnDemo()
                         4 -> LazyRowDemo()
                         5 -> LazyVerticalGridDemo()
+                        6 -> LazyVerticalGridDemo()
                     }
                 }
             }
