@@ -45,7 +45,8 @@ class MainActivity : ComponentActivity() {
             6 -> startActivity(FoundationActivity.newIntent(this, 4))
             7 -> startActivity(FoundationActivity.newIntent(this, 5))
             8 -> startActivity(FoundationActivity.newIntent(this, 6))
-            9 -> startActivity(BottomNavigationAnimationActivity.newIntent(this))
+            9 -> startActivity(FoundationActivity.newIntent(this, 7))
+            10 -> startActivity(BottomNavigationAnimationActivity.newIntent(this))
             else -> {
 
             }
@@ -89,7 +90,8 @@ class MainActivity : ComponentActivity() {
         Menu(6, "LazyRow"),
         Menu(7, "LazyVerticalGrid"),
         Menu(8, "Shape"),
-        Menu(9, "BottomNavigationAnimation"),
+        Menu(9, "Text"),
+        Menu(10, "BottomNavigationAnimation"),
     )
 
     data class Menu(
