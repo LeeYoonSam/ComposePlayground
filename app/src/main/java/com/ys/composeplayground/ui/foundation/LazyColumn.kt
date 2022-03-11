@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Button
+import androidx.compose.material.LocalTextStyle
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -41,7 +42,7 @@ fun LazyColumnDemo() {
                 }
 
                 "D" -> {
-                    Text(text = item)
+                    Text(text = item, style = LocalTextStyle.current)
                 }
 
                 else -> {
