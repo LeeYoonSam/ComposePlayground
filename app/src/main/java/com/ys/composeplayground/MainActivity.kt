@@ -16,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ys.composeplayground.extensions.toast
+import com.ys.composeplayground.ui.DemoComposableActivity
 import com.ys.composeplayground.ui.album.AlbumActivity
 import com.ys.composeplayground.ui.foundation.FoundationActivity
 import com.ys.composeplayground.ui.navigation.BottomNavigationAnimationActivity
@@ -61,6 +62,7 @@ class MainActivity : ComponentActivity() {
             8 -> startActivity(FoundationActivity.newIntent(this, 6))
             9 -> startActivity(FoundationActivity.newIntent(this, 7))
             10 -> startActivity(BottomNavigationAnimationActivity.newIntent(this))
+            11 -> startActivity(DemoComposableActivity.newIntent(this))
             else -> {
 
             }
@@ -112,6 +114,7 @@ class MainActivity : ComponentActivity() {
         Menu(8, "Shape"),
         Menu(9, "Text"),
         Menu(10, "BottomNavigationAnimation"),
+        Menu(11, "Material"),
     )
 
     data class Menu(
