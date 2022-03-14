@@ -35,10 +35,6 @@
             android:name=".ui.navigation.BottomNavigationAnimationActivity"
             android:label="@string/app_name"/>
 
-        <activity
-            android:name=".ui.DemoComposableActivity"
-            android:label="@string/app_name"/>
-
     </application>
 
 </manifest>
