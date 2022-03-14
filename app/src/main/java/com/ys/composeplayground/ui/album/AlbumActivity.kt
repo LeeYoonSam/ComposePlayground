@@ -22,6 +22,8 @@ import com.ys.composeplayground.ui.album.data.ProviderMediaStoreImage
 import com.ys.composeplayground.ui.album.data.queryImages
 import com.ys.composeplayground.ui.theme.ComposePlaygroundTheme
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.onStart
 
 class AlbumActivity : ComponentActivity() {
 
@@ -73,11 +75,9 @@ class AlbumActivity : ComponentActivity() {
 
     private fun showImages() {
         GlobalScope.launch {
-            val images = async(Dispatchers.Default) {
-                queryImages(contentResolver = contentResolver)
-            }.await()
-
-            mediaList.addAll(images)
+            queryImages(contentResolver).collect {
+                mediaList.addAll(it)
+            }
         }
     }
 
