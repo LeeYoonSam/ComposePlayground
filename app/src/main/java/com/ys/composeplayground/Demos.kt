@@ -5,6 +5,7 @@ import com.ys.composeplayground.ui.animation.CrossfadeDemo
 import com.ys.composeplayground.ui.foundation.*
 import com.ys.composeplayground.ui.material.AlertDialogSample
 import com.ys.composeplayground.ui.material.ButtonDemos
+import com.ys.composeplayground.ui.material.CardDemo
 import com.ys.composeplayground.ui.navigation.BottomNavigationAnimationActivity
 
 val Animation = DemoCategory(
@@ -33,6 +34,7 @@ val MaterialDemos = DemoCategory(
     listOf(
         ComposableDemo("AlertDialog") { AlertDialogSample() },
         ComposableDemo("Button") { ButtonDemos() },
+        ComposableDemo("Card") { CardDemo() },
     )
 )
 

@@ -90,7 +90,7 @@ class MainActivity : ComponentActivity() {
         onNavigate: (Demo) -> Unit
     ) {
         Crossfade(targetState = currentDemo) { demo ->
-            Surface(modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
+            Surface(modifier.fillMaxWidth(), color = MaterialTheme.colors.background) {
                 DisplayDemo(demo, onNavigate)
             }
         }
