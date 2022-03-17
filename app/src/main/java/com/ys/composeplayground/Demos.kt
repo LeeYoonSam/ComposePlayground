@@ -6,6 +6,7 @@ import com.ys.composeplayground.ui.foundation.*
 import com.ys.composeplayground.ui.material.AlertDialogSample
 import com.ys.composeplayground.ui.material.ButtonDemos
 import com.ys.composeplayground.ui.material.CardDemo
+import com.ys.composeplayground.ui.material.CheckboxDemo
 import com.ys.composeplayground.ui.navigation.BottomNavigationAnimationActivity
 
 val Animation = DemoCategory(
@@ -35,6 +36,7 @@ val MaterialDemos = DemoCategory(
         ComposableDemo("AlertDialog") { AlertDialogSample() },
         ComposableDemo("Button") { ButtonDemos() },
         ComposableDemo("Card") { CardDemo() },
+        ComposableDemo("Checkbox") { CheckboxDemo() },
     )
 )
 
