@@ -35,6 +35,7 @@ val MaterialDemos = DemoCategory(
         ComposableDemo("Card") { CardDemo() },
         ComposableDemo("Checkbox") { CheckboxDemo() },
         ComposableDemo("FloatingActionButtons") { FloatingActionButtonDemos() },
+        ComposableDemo("ModalDrawer") { ModalDrawerDemo() },
     )
 )
 
