@@ -38,6 +38,7 @@ val MaterialDemos = DemoCategory(
         ComposableDemo("ModalDrawer") { ModalDrawerDemo() },
         ComposableDemo("RadioButton") { RadioButtonDemo() },
         ComposableDemo("Scaffold") { ScaffoldDemo() },
+        ComposableDemo("Slider") { SliderDemo() },
     )
 )
 
