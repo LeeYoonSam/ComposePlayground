@@ -1,26 +1,20 @@
-package com.ys.composeplayground
+package com.ys.composeplayground.ui.keyboard
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.ComponentActivity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.platform.ComposeView
-import com.ys.composeplayground.extensions.toast
+import com.ys.composeplayground.ActivityDemo
+import com.ys.composeplayground.KeyboardHandlingDemos
 import com.ys.composeplayground.ui.common.DemoApp
 import com.ys.composeplayground.ui.common.Navigator
 import com.ys.composeplayground.ui.theme.ComposePlaygroundTheme
 
-class MainActivity : ComponentActivity() {
-
-    private var backPressed = 0L
+class KeyboardHandlingActivity : AppCompatActivity() {
 
     private val finish: () -> Unit = {
-        if (backPressed + 1500 > System.currentTimeMillis()) {
-            finishAndRemoveTask()
-        } else {
-            toast(getString(R.string.app_exit_label))
-        }
-        backPressed = System.currentTimeMillis()
+        finish()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,9 +28,9 @@ class MainActivity : ComponentActivity() {
             }
 
             val navigator = rememberSaveable(
-                saver = Navigator.Saver(AllDemosCategory, onBackPressedDispatcher, activityStarter, finish)
+                saver = Navigator.Saver(KeyboardHandlingDemos, onBackPressedDispatcher, activityStarter, finish)
             ) {
-                Navigator(AllDemosCategory, onBackPressedDispatcher, activityStarter, finish)
+                Navigator(KeyboardHandlingDemos, onBackPressedDispatcher, activityStarter, finish)
             }
 
             ComposePlaygroundTheme {

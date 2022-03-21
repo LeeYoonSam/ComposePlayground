@@ -3,6 +3,7 @@ package com.ys.composeplayground
 import com.ys.composeplayground.ui.album.AlbumActivity
 import com.ys.composeplayground.ui.animation.CrossfadeDemo
 import com.ys.composeplayground.ui.foundation.*
+import com.ys.composeplayground.ui.keyboard.KeyboardHandlingActivity
 import com.ys.composeplayground.ui.material.*
 import com.ys.composeplayground.ui.navigation.BottomNavigationAnimationActivity
 
@@ -48,8 +49,19 @@ val ActivityDemos = DemoCategory(
     listOf(
         ActivityDemo("Album", AlbumActivity::class),
         ActivityDemo("BottomNavigationAnimationActivity", BottomNavigationAnimationActivity::class),
+        ActivityDemo("KeyboardHandlingActivity", KeyboardHandlingActivity::class),
     )
 )
+
+val KeyboardHandlingDemos = DemoCategory(
+    "KeyboardHandling",
+    listOf(
+        ComposableDemo("TextField1") { AlertDialogSample() },
+        ComposableDemo("TextField2") { ButtonDemos() },
+        ComposableDemo("TextField3") { CardDemo() },
+    )
+)
+
 
 val AllDemosCategory = DemoCategory(
     "Jetpack Compose Playground Demos",
