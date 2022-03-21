@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ComposePlayground</string>
     <string name="app_exit_label">종료하려면 뒤로가기를 다시 한번 누르세요</string>
+    <string name="calc">Calculate</string>
 </resources>

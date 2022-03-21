@@ -3,7 +3,7 @@ package com.ys.composeplayground
 import com.ys.composeplayground.ui.album.AlbumActivity
 import com.ys.composeplayground.ui.animation.CrossfadeDemo
 import com.ys.composeplayground.ui.foundation.*
-import com.ys.composeplayground.ui.keyboard.KeyboardHandlingActivity
+import com.ys.composeplayground.ui.keyboard.*
 import com.ys.composeplayground.ui.material.*
 import com.ys.composeplayground.ui.navigation.BottomNavigationAnimationActivity
 
@@ -56,9 +56,9 @@ val ActivityDemos = DemoCategory(
 val KeyboardHandlingDemos = DemoCategory(
     "KeyboardHandling",
     listOf(
-        ComposableDemo("TextField1") { AlertDialogSample() },
-        ComposableDemo("TextField2") { ButtonDemos() },
-        ComposableDemo("TextField3") { CardDemo() },
+        ComposableDemo("KeyboardHandling basic") { KeyboardHandlingDemo1() },
+        ComposableDemo("KeyboardHandling Multiple Text Fields") { KeyboardHandlingMultipleTextFieldsDemo() },
+        ComposableDemo("KeyboardHandling Showing and Hiding Keyboard()") { ShowingHidingKeyboardDemo() },
     )
 )
 
