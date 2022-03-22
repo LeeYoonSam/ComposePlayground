@@ -41,6 +41,7 @@ val MaterialDemos = DemoCategory(
         ComposableDemo("Scaffold") { ScaffoldDemo() },
         ComposableDemo("Slider") { SliderDemo() },
         ComposableDemo("Snackbar") { SnackbarDemo() },
+        ComposableDemo("Switch") { SwitchDemo() },
     )
 )
 
