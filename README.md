@@ -1,6 +1,29 @@
 # Compose Playground
-
 [Jetpack Compose playground](https://foso.github.io/Jetpack-Compose-Playground/)
+
+## 개발시 문제사항
+
+### BadgeBox 구현시 발생문제
+1. compose version - `1.0.0-beta09` 사용중이었으나 BadgeBox가 material 1.1.1 이상에서 작동
+
+```kotlin
+implementation "androidx.compose.material:material:$compose_version"
+```
+
+2. Compose 버전을 1.1.1 로 올리니 KotlinCompile 에러 발생
+- Kotlin Version 1.6.10 으로 업그레이드
+
+```groovy
+buildscript {
+  ext {
+    compose_version = '1.1.1'
+    kotlin_version = "1.6.10"
+  }
+  ...
+}
+```
+
+3. 위의 방법대로 순차적으로 진행하니 컴파일 에러 수정
 
 ## Compose UI
 
