@@ -44,6 +44,7 @@ val MaterialDemos = DemoCategory(
         ComposableDemo("Switch") { SwitchDemo() },
         ComposableDemo("LinearProgressIndicator") { LinearProgressIndicatorDemo() },
         ComposableDemo("BadgeBox") { BadgeBoxDemo() },
+        ComposableDemo("ModalBottomSheet") { ModalBottomSheetDemo() },
     )
 )
 
