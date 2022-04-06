@@ -34,6 +34,7 @@ val MaterialDemos = DemoCategory(
         ComposableDemo("AlertDialog") { AlertDialogSample() },
         ComposableDemo("Button") { ButtonDemos() },
         ComposableDemo("Card") { CardDemo() },
+        ComposableDemo("CircularProgressIndicator") { CircularProgressIndicatorDemo() },
         ComposableDemo("Checkbox") { CheckboxDemo() },
         ComposableDemo("FloatingActionButtons") { FloatingActionButtonDemos() },
         ComposableDemo("ModalDrawer") { ModalDrawerDemo() },
