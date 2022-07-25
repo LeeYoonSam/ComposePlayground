@@ -65,6 +65,7 @@ val KeyboardHandlingDemos = DemoCategory(
         ComposableDemo("KeyboardHandling basic") { KeyboardHandlingDemo1() },
         ComposableDemo("KeyboardHandling Multiple Text Fields") { KeyboardHandlingMultipleTextFieldsDemo() },
         ComposableDemo("KeyboardHandling Showing and Hiding Keyboard()") { ShowingHidingKeyboardDemo() },
+        ComposableDemo("KeyboardHandling LazyColumn Keyboard") { KeyboardLazyColumnDemo() },
     )
 )
 
