@@ -9,21 +9,16 @@ import android.os.Bundle
 import android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import com.ys.composeplayground.ui.album.data.MediaStoreImage
-import com.ys.composeplayground.ui.album.data.ProviderMediaStoreImage
 import com.ys.composeplayground.ui.album.data.queryImages
 import com.ys.composeplayground.ui.theme.ComposePlaygroundTheme
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.onStart
 
 class AlbumActivity : ComponentActivity() {
 
@@ -35,7 +30,7 @@ class AlbumActivity : ComponentActivity() {
 
             ComposePlaygroundTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(color = MaterialTheme.colors.background) {
+                Surface(color = MaterialTheme.colorScheme.background) {
                     AlbumScreen(mediaList)
                 }
             }
@@ -74,13 +69,14 @@ class AlbumActivity : ComponentActivity() {
     }
 
     private fun showImages() {
-        GlobalScope.launch {
+        lifecycleScope.launch {
             queryImages(contentResolver).collect {
                 mediaList.addAll(it)
             }
         }
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {

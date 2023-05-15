@@ -4,10 +4,11 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.material.Card
-import androidx.compose.material.Text
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -49,7 +50,7 @@ fun LazyVerticalGridDemo() {
 
     LazyVerticalGrid(
 
-        cells = GridCells.Adaptive(128.dp),
+        columns = GridCells.Adaptive(128.dp),
 
         /**
          * GridCells.Adaptive 외에도 행당 열 수를 제공하는 다른 유형의 셀이 있습니다.
@@ -67,11 +68,11 @@ fun LazyVerticalGridDemo() {
         content = {
             items(list.size) { index ->  
                 Card(
-                    backgroundColor = Color.Red,
+                    colors = CardDefaults.cardColors(containerColor = Color.Red),
                     modifier = Modifier
                         .padding(4.dp)
                         .fillMaxWidth(),
-                    elevation = 8.dp
+                    elevation = CardDefaults.elevatedCardElevation(defaultElevation = 8.dp)
                 ) {
                     Text(
                         text = list[index],

@@ -1,11 +1,9 @@
 package com.ys.composeplayground.ui.album
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -20,28 +18,26 @@ import coil.compose.rememberImagePainter
 import com.ys.composeplayground.R
 import com.ys.composeplayground.ui.album.data.MediaStoreImage
 import com.ys.composeplayground.ui.album.data.ProviderMediaStoreImage
-import com.ys.composeplayground.ui.animation.MyColors
 
 const val GRID_FIXED_COUNT = 3
 val GRID_CONTENT_PADDING = 4.dp
 val GRID_PADDING = 4.dp
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun AlbumScreen(albumList: List<MediaStoreImage>) {
 
     LazyVerticalGrid(
-        cells = GridCells.Fixed(GRID_FIXED_COUNT),
-        content = {
-            items(
-                items = albumList,
-                itemContent = { item ->
-                    CardImageView(album = item)
-                }
-            )
-        },
+        columns = GridCells.Fixed(GRID_FIXED_COUNT),
         contentPadding = PaddingValues(GRID_CONTENT_PADDING)
-    )
+    ) {
+        items(
+            count = albumList.size,
+            itemContent = { position ->
+                val item = albumList[position]
+                CardImageView(album = item)
+            }
+        )
+    }
 }
 
 @Composable

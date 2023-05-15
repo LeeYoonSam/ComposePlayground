@@ -1,8 +1,13 @@
 package com.ys.composeplayground.ui.material
 
-import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material3.Badge
+import androidx.compose.material3.BadgedBox
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -23,26 +28,19 @@ import androidx.compose.ui.tooling.preview.Preview
  * 배지 예제가 있는 간단한 아이콘은 다음과 같습니다.
  */
 
-@OptIn(ExperimentalMaterialApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BadgeBoxDemo() {
 
     val badgeCount = remember { mutableStateOf(0) }
 
-    BottomNavigation {
-        BottomNavigationItem(
-            icon = {
-                //
-                BadgedBox(badge = { Badge { Text(badgeCount.value.toString()) } }) {
-                    Icon(
-                        imageVector = Icons.Filled.Favorite,
-                        contentDescription = "Favorite"
-                    )
-                }
-            },
-            selected = false,
-            onClick = { badgeCount.value += 1 }
-        )
+    NavigationBar {
+        BadgedBox(badge = { Badge { Text(badgeCount.value.toString()) } }) {
+            Icon(
+                imageVector = Icons.Filled.Favorite,
+                contentDescription = "Favorite"
+            )
+        }
     }
 }
 

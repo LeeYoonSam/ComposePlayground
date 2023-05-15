@@ -1,5 +1,6 @@
 package com.ys.composeplayground.ui.material
 
+import android.annotation.SuppressLint
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -12,6 +13,7 @@ import kotlinx.coroutines.launch
  *
  * Scaffold는 기본 머티리얼 디자인 레이아웃 구조를 구현하는 레이아웃입니다. TopBar, BottomBar, FAB 또는 서랍과 같은 것을 추가할 수 있습니다.
  */
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun ScaffoldDemo() {
     val materialBlue700 = Color(0xFF1976D2)

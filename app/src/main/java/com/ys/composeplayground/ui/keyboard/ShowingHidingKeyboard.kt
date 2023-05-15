@@ -1,13 +1,22 @@
 package com.ys.composeplayground.ui.keyboard
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
-import androidx.compose.runtime.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
@@ -26,7 +35,7 @@ import kotlin.math.pow
  * 사용자가 숫자를 입력하고 계산 버튼이나 소프트 키보드의 특수 완료 키를 누른 후 제곱을 계산할 수 있도록 합니다.
  * 데이터가 입력된 후 전체 사용자 인터페이스를 다시 표시하는 것이 바람직할 수 있습니다.
  */
-@OptIn(ExperimentalComposeUiApi::class)
+@OptIn(ExperimentalComposeUiApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun ShowingHidingKeyboardDemo() {
     val localSoftwareKeyboardController = LocalSoftwareKeyboardController.current
@@ -79,7 +88,7 @@ fun ShowingHidingKeyboardDemo() {
         }
         Text(
             text = result,
-            style = MaterialTheme.typography.h4
+            style = MaterialTheme.typography.headlineSmall
         )
     }
 }

@@ -1,7 +1,16 @@
 package com.ys.composeplayground.ui.material
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -25,7 +34,7 @@ fun ButtonExample(
         onClick = { onClick(text) },
         colors = ButtonDefaults
             .textButtonColors(
-                backgroundColor = Color.Red
+                containerColor = Color.Red
             )
     ) {
         Text(text)

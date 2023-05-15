@@ -1,7 +1,7 @@
 package com.ys.composeplayground.ui.material
 
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Checkbox
+import androidx.compose.material3.Checkbox
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
