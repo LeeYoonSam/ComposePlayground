@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
@@ -35,7 +36,19 @@ fun DemoAppBar(
 ) {
     TopAppBar(
         title = {
-            Text(title, Modifier.testTag(Tags.AppBarTitle))
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+            ) {
+                Text(
+                    text = title,
+                    modifier = Modifier
+                        .padding(10.dp)
+                        .testTag(Tags.AppBarTitle)
+                )
+
+                Divider()
+            }
         }
     )
 }
@@ -91,7 +104,8 @@ private fun DisplayDemoCategory(category: DemoCategory, onNavigate: (Demo) -> Un
             ListItem(
                 headlineText = {
                     Text(
-                        modifier = Modifier.height(56.dp)
+                        modifier = Modifier
+                            .height(56.dp)
                             .wrapContentSize(Alignment.Center),
                         text = demo.title
                     )
