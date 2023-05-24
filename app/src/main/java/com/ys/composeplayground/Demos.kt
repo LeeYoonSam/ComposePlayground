@@ -3,6 +3,10 @@ package com.ys.composeplayground
 import com.ys.composeplayground.ui.album.AlbumActivity
 import com.ys.composeplayground.ui.animation.CrossfadeDemo
 import com.ys.composeplayground.ui.foundation.*
+import com.ys.composeplayground.ui.foundation.layout.SimpleFlowColumn
+import com.ys.composeplayground.ui.foundation.layout.SimpleFlowColumnWithWeights
+import com.ys.composeplayground.ui.foundation.layout.SimpleFlowRow
+import com.ys.composeplayground.ui.foundation.layout.SimpleFlowRowWithWeights
 import com.ys.composeplayground.ui.keyboard.*
 import com.ys.composeplayground.ui.material.*
 import com.ys.composeplayground.ui.navigation.BottomNavigationAnimationActivity
@@ -22,9 +26,17 @@ val FoundationDemos = DemoCategory(
         ComposableDemo("Image") { ImageResourceDemo() },
         ComposableDemo("LazyColumn") { LazyColumnDemo() },
         ComposableDemo("LazyRow") { LazyRowDemo() },
-        ComposableDemo("LazyVerticalGrid") { LazyVerticalGridDemo() },
+        ComposableDemo("LazyVerticalGrid - Adaptive") { LazyVerticalGridDemo() },
+        ComposableDemo("LazyVerticalGrid - Composite Items") { LazyVerticalGridCompositeSample() },
+        ComposableDemo("LazyVerticalGrid - Section Items(span)") { LazyVerticalGridSpanSample() },
         ComposableDemo("Shape") { ShapeDemo() },
         ComposableDemo("Text") { TextDemo() },
+        ComposableDemo("SelectionContainer") { SelectionSample() },
+        ComposableDemo("VerticalPager") { SimpleVerticalPagerSample() },
+        ComposableDemo("FlowColumn") { SimpleFlowColumn() },
+        ComposableDemo("FlowColumn - weight") { SimpleFlowColumnWithWeights() },
+        ComposableDemo("FlowRow") { SimpleFlowRow() },
+        ComposableDemo("FlowRow - weight") { SimpleFlowRowWithWeights() },
     )
 )
 

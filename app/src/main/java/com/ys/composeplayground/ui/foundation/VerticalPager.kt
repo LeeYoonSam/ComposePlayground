@@ -114,6 +114,6 @@ fun SimpleVerticalPagerSample() {
 
 @Preview
 @Composable
-fun SimpleVerticalPagerSamplePreview() {
+private fun SimpleVerticalPagerSamplePreview() {
     SimpleVerticalPagerSample()
 }
