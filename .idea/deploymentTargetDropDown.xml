@@ -2,10 +2,10 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="PopupSample">
+      <entry key="SelectionSamplePreview">
         <State />
       </entry>
-      <entry key="PopupSample2">
+      <entry key="SimpleVerticalPagerSamplePreview">
         <State />
       </entry>
       <entry key="app">
