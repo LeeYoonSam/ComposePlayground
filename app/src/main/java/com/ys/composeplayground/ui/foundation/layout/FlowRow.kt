@@ -103,12 +103,12 @@ fun SimpleFlowRowWithWeights() {
 
 @Preview
 @Composable
-fun SimpleFlowRowPreview() {
+private fun SimpleFlowRowPreview() {
     SimpleFlowRow()
 }
 
 @Preview
 @Composable
-fun SimpleFlowRowWithWeightsPreview() {
+private fun SimpleFlowRowWithWeightsPreview() {
     SimpleFlowRowWithWeights()
 }

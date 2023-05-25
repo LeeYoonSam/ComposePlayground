@@ -120,12 +120,12 @@ fun SimpleFlowColumnWithWeights() {
 
 @Preview
 @Composable
-fun SimpleFlowColumnPreview() {
+private fun SimpleFlowColumnPreview() {
     SimpleFlowColumn()
 }
 
 @Preview
 @Composable
-fun SimpleFlowColumnWithWeightsPreview() {
+private fun SimpleFlowColumnWithWeightsPreview() {
     SimpleFlowColumnWithWeights()
 }
