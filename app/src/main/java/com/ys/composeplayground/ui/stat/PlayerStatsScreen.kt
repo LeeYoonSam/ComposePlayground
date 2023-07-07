@@ -87,6 +87,6 @@ fun StatItem(
 @Preview
 @Composable
 fun PlayerStateScreenPreview() {
-    val player = Player("Albert")
+    val player = Player("Albert", "22")
     PlayerStatsScreen(player)
 }

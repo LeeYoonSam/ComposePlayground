@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 
 data class Player(
     val name: String,
+    val backNumber: String,
     var rebounds: MutableState<Int> = mutableStateOf(0),
     var assists: MutableState<Int> = mutableStateOf(0),
     var steals: MutableState<Int> = mutableStateOf(0),
