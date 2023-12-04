@@ -1,5 +1,6 @@
 package com.ys.composeplayground
 
+import com.ys.composeplayground.ui.activity.lazycolumn.sectionheader.SectionHeaderLazyColumnActivity
 import com.ys.composeplayground.ui.album.AlbumActivity
 import com.ys.composeplayground.ui.animation.CrossfadeDemo
 import com.ys.composeplayground.ui.foundation.*
@@ -68,6 +69,7 @@ val ActivityDemos = DemoCategory(
         ActivityDemo("Album", AlbumActivity::class),
         ActivityDemo("BottomNavigationAnimationActivity", BottomNavigationAnimationActivity::class),
         ActivityDemo("KeyboardHandlingActivity", KeyboardHandlingActivity::class),
+        ActivityDemo("AnimatedLazyColumnSectionHeader", SectionHeaderLazyColumnActivity::class),
     )
 )
 
