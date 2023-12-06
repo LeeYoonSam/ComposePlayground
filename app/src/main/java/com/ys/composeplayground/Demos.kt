@@ -3,6 +3,7 @@ package com.ys.composeplayground
 import com.ys.composeplayground.ui.activity.lazycolumn.sectionheader.SectionHeaderLazyColumnActivity
 import com.ys.composeplayground.ui.album.AlbumActivity
 import com.ys.composeplayground.ui.animation.CrossfadeDemo
+import com.ys.composeplayground.ui.animation.LottieLoadingResultScreen
 import com.ys.composeplayground.ui.foundation.*
 import com.ys.composeplayground.ui.foundation.layout.SimpleFlowColumn
 import com.ys.composeplayground.ui.foundation.layout.SimpleFlowColumnWithWeights
@@ -16,6 +17,7 @@ val Animation = DemoCategory(
     "Animations",
     listOf(
         ComposableDemo("Crossfade") { CrossfadeDemo() },
+        ComposableDemo("LottieLoadingResult") { LottieLoadingResultScreen() },
     )
 )
 
