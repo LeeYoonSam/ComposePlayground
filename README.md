@@ -82,8 +82,9 @@ buildscript {
   - itemContent -> 아이템 하나를 전달받아 뷰를 그리는 역할
 
 참고
-[LazyColumn](https://foso.github.io/Jetpack-Compose-Playground/foundation/lazyrow/)
-[Offical Docs](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary#lazyrow)
-
+- [LazyColumn](https://foso.github.io/Jetpack-Compose-Playground/foundation/lazyrow/)
+- [Offical Docs](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary#lazyrow)
+- [Capturable](https://github.com/PatilShreyas/Capturable)
+  - JetpackCompose 캡쳐 라이브러리
 
 # [Composables - Component](https://www.composables.com/components)

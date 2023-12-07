@@ -4,7 +4,9 @@ buildscript {
         compose_version = '1.4.7'
         kotlin_version = '1.8.21'
         agp_version = '8.0.1'
+        coroutinesVersion = '1.7.3'
     }
+
     repositories {
         google()
         mavenCentral()
