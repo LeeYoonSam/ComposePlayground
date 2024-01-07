@@ -12,6 +12,7 @@ import com.ys.composeplayground.ui.foundation.layout.SimpleFlowRowWithWeights
 import com.ys.composeplayground.ui.keyboard.*
 import com.ys.composeplayground.ui.material.*
 import com.ys.composeplayground.ui.navigation.BottomNavigationAnimationActivity
+import com.ys.composeplayground.ui.scroll.TimerComponent
 
 val Animation = DemoCategory(
     "Animations",
@@ -85,6 +86,12 @@ val KeyboardHandlingDemos = DemoCategory(
     )
 )
 
+val ScrollDemos = DemoCategory(
+    "Scrolls",
+    listOf(
+        ComposableDemo("TimerComponent") { TimerComponent() },
+    )
+)
 
 val AllDemosCategory = DemoCategory(
     "Jetpack Compose Playground Demos",
@@ -93,5 +100,6 @@ val AllDemosCategory = DemoCategory(
         FoundationDemos,
         MaterialDemos,
         ActivityDemos,
+        ScrollDemos,
     )
 )

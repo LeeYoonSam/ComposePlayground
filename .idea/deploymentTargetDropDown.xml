@@ -2,10 +2,7 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="CapturableTest">
-        <State />
-      </entry>
-      <entry key="PlayerStateScreenPreview">
+      <entry key="StatScreenPreview">
         <State />
       </entry>
       <entry key="app">
