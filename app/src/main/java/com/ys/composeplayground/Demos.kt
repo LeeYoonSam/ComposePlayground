@@ -12,6 +12,7 @@ import com.ys.composeplayground.ui.foundation.layout.SimpleFlowRowWithWeights
 import com.ys.composeplayground.ui.keyboard.*
 import com.ys.composeplayground.ui.material.*
 import com.ys.composeplayground.ui.navigation.BottomNavigationAnimationActivity
+import com.ys.composeplayground.ui.scroll.TimerCircleComponent
 import com.ys.composeplayground.ui.scroll.TimerComponent
 
 val Animation = DemoCategory(
@@ -90,6 +91,7 @@ val ScrollDemos = DemoCategory(
     "Scrolls",
     listOf(
         ComposableDemo("TimerComponent") { TimerComponent() },
+        ComposableDemo("TimerCircleComponent") { TimerCircleComponent() },
     )
 )
 
