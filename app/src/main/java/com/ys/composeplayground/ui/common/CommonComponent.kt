@@ -27,6 +27,7 @@ import com.ys.composeplayground.ComposableDemo
 import com.ys.composeplayground.Demo
 import com.ys.composeplayground.DemoCategory
 import com.ys.composeplayground.Tags
+import com.ys.composeplayground.ui.theme.Typography
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Suppress("ComposableLambdaParameterNaming", "ComposableLambdaParameterPosition")
@@ -42,6 +43,7 @@ fun DemoAppBar(
             ) {
                 Text(
                     text = title,
+                    style = Typography.body1,
                     modifier = Modifier
                         .padding(10.dp)
                         .testTag(Tags.AppBarTitle)
