@@ -7,4 +7,11 @@
     <string name="assist">어시스트</string>
     <string name="steal">스틸</string>
     <string name="block">블록</string>
+
+    <string name="settings_title">설정</string>
+    <string name="settings_loading">설정 불러오는중</string>
+    <string name="settings_theme">테마</string>
+    <string name="settings_brand_default">기본 테마</string>
+    <string name="settings_brand_android">안드로이드 테마</string>
+    <string name="settings_dismiss_dialog_button_text">설정 닫기</string>
 </resources>
