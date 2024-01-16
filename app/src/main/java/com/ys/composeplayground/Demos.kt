@@ -1,9 +1,18 @@
 package com.ys.composeplayground
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import com.ys.composeplayground.ui.activity.lazycolumn.sectionheader.SectionHeaderLazyColumnActivity
 import com.ys.composeplayground.ui.album.AlbumActivity
 import com.ys.composeplayground.ui.animation.CrossfadeDemo
 import com.ys.composeplayground.ui.animation.LottieLoadingResultScreen
+import com.ys.composeplayground.ui.dialog.DarkThemeConfig
+import com.ys.composeplayground.ui.dialog.SettingsDialog
+import com.ys.composeplayground.ui.dialog.SettingsUiState
+import com.ys.composeplayground.ui.dialog.ThemeBrand
+import com.ys.composeplayground.ui.dialog.UserEditableSettings
 import com.ys.composeplayground.ui.foundation.*
 import com.ys.composeplayground.ui.foundation.layout.SimpleFlowColumn
 import com.ys.composeplayground.ui.foundation.layout.SimpleFlowColumnWithWeights
@@ -44,6 +53,50 @@ val FoundationDemos = DemoCategory(
         ComposableDemo("FlowRow - weight") { SimpleFlowRowWithWeights() },
     )
 )
+
+val DialogDemos = DemoCategory(
+    "Dialogs",
+    listOf(
+        ComposableDemo("SettingsDialog") {
+            var showSettingsDialog by rememberSaveable { mutableStateOf(true) }
+            if (showSettingsDialog) {
+                SettingsDialog(
+                    onDismiss = { showSettingsDialog = false},
+                    settingsUiState = SettingsUiState.Success(
+                        UserEditableSettings(
+                            brand = ThemeBrand.DEFAULT,
+                            darkThemeConfig = DarkThemeConfig.FOLLOW_SYSTEM,
+                            useDynamicColor = false,
+                        ),
+                    ),
+                    onChangeThemeBrand = {},
+                    onChangeDynamicColorPreference = {},
+                    onChangeDarkThemeConfig = {},
+                )
+            }
+        },
+        ComposableDemo("SettingsDialog - supportDynamicColor") {
+            var showSettingsDialog by rememberSaveable { mutableStateOf(true) }
+            if (showSettingsDialog) {
+                SettingsDialog(
+                    onDismiss = { showSettingsDialog = false},
+                    settingsUiState = SettingsUiState.Success(
+                        UserEditableSettings(
+                            brand = ThemeBrand.DEFAULT,
+                            darkThemeConfig = DarkThemeConfig.FOLLOW_SYSTEM,
+                            useDynamicColor = false,
+                        ),
+                    ),
+                    supportDynamicColor = true,
+                    onChangeThemeBrand = {},
+                    onChangeDynamicColorPreference = {},
+                    onChangeDarkThemeConfig = {},
+                )
+            }
+        },
+    )
+)
+
 
 val MaterialDemos = DemoCategory(
     "Materials",
@@ -100,6 +153,7 @@ val AllDemosCategory = DemoCategory(
     listOf(
         Animation,
         FoundationDemos,
+        DialogDemos,
         MaterialDemos,
         ActivityDemos,
         ScrollDemos,
