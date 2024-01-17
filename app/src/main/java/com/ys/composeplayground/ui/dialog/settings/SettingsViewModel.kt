@@ -1,9 +1,16 @@
 package com.ys.composeplayground.ui.dialog.settings
 
+import androidx.lifecycle.ViewModel
+import com.ys.composeplayground.core.data.repository.UserDataRepository
 import com.ys.composeplayground.core.model.data.DarkThemeConfig
 import com.ys.composeplayground.core.model.data.ThemeBrand
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class SettingsViewModel {
+@HiltViewModel
+class SettingsViewModel @Inject constructor(
+//    private val userDataRepository: UserDataRepository,
+) : ViewModel() {
 
 }
 
