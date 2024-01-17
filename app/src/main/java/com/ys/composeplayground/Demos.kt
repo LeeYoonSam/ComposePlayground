@@ -8,11 +8,11 @@ import com.ys.composeplayground.ui.activity.lazycolumn.sectionheader.SectionHead
 import com.ys.composeplayground.ui.album.AlbumActivity
 import com.ys.composeplayground.ui.animation.CrossfadeDemo
 import com.ys.composeplayground.ui.animation.LottieLoadingResultScreen
-import com.ys.composeplayground.ui.dialog.DarkThemeConfig
-import com.ys.composeplayground.ui.dialog.SettingsDialog
-import com.ys.composeplayground.ui.dialog.SettingsUiState
-import com.ys.composeplayground.ui.dialog.ThemeBrand
-import com.ys.composeplayground.ui.dialog.UserEditableSettings
+import com.ys.composeplayground.core.model.data.DarkThemeConfig
+import com.ys.composeplayground.ui.dialog.settings.SettingsDialog
+import com.ys.composeplayground.ui.dialog.settings.SettingsUiState
+import com.ys.composeplayground.core.model.data.ThemeBrand
+import com.ys.composeplayground.ui.dialog.settings.UserEditableSettings
 import com.ys.composeplayground.ui.foundation.*
 import com.ys.composeplayground.ui.foundation.layout.SimpleFlowColumn
 import com.ys.composeplayground.ui.foundation.layout.SimpleFlowColumnWithWeights

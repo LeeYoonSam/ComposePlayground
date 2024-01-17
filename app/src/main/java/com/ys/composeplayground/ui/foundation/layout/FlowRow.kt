@@ -60,7 +60,7 @@ fun SimpleFlowRow() {
             .fillMaxWidth(1f)
             .wrapContentHeight(align = Alignment.Top),
         horizontalArrangement = Arrangement.spacedBy(10.dp),
-        verticalAlignment = Alignment.CenterVertically,
+        verticalArrangement = Arrangement.Center,
         maxItemsInEachRow = 3
     ) {
         repeat(10) {
@@ -85,7 +85,7 @@ fun SimpleFlowRowWithWeights() {
             .wrapContentHeight()
             .fillMaxWidth(1f),
         horizontalArrangement = Arrangement.spacedBy(10.dp),
-        verticalAlignment = Alignment.CenterVertically,
+        verticalArrangement = Arrangement.Center,
         maxItemsInEachRow = 3
     ) {
         repeat(6) { index ->

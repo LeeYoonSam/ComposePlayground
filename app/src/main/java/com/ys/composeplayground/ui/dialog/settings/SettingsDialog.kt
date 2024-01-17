@@ -1,4 +1,4 @@
-package com.ys.composeplayground.ui.dialog
+package com.ys.composeplayground.ui.dialog.settings
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.clickable
@@ -38,33 +38,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 import com.ys.composeplayground.R
+import com.ys.composeplayground.core.model.data.DarkThemeConfig
+import com.ys.composeplayground.core.model.data.ThemeBrand
 import com.ys.composeplayground.ui.theme.ComposePlaygroundTheme
-
-/**
- * https://github.com/android/nowinandroid/blob/main/feature/settings/src/main/kotlin/com/google/samples/apps/nowinandroid/feature/settings/SettingsDialog.kt
- */
-
-enum class ThemeBrand {
-    DEFAULT,
-    ANDROID,
-}
-
-enum class DarkThemeConfig {
-    FOLLOW_SYSTEM,
-    LIGHT,
-    DARK,
-}
-
-data class UserEditableSettings(
-    val brand: ThemeBrand,
-    val useDynamicColor: Boolean,
-    val darkThemeConfig: DarkThemeConfig,
-)
-
-sealed interface SettingsUiState {
-    object Loading : SettingsUiState
-    data class Success(val settings: UserEditableSettings) : SettingsUiState
-}
 
 @Composable
 fun SettingsDialog(

@@ -62,7 +62,7 @@ fun SimpleFlowColumn() {
             .wrapContentHeight(align = Alignment.Top)
             .requiredHeight(200.dp)
             .border(BorderStroke(2.dp, Color.Gray)),
-        horizontalAlignment = Alignment.CenterHorizontally,
+        horizontalArrangement = Arrangement.Center,
         verticalArrangement = Arrangement.Center,
         maxItemsInEachColumn = 3
     ) {
@@ -94,7 +94,7 @@ fun SimpleFlowColumnWithWeights() {
             .wrapContentHeight(align = Alignment.Top)
             .requiredHeight(200.dp)
             .border(BorderStroke(2.dp, Color.Gray)),
-        horizontalAlignment = Alignment.CenterHorizontally,
+        horizontalArrangement = Arrangement.Center,
         verticalArrangement = Arrangement.Center,
         maxItemsInEachColumn = 3
     ) {

@@ -7,7 +7,9 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.VerticalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -94,10 +96,14 @@ import androidx.compose.ui.unit.sp
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun SimpleVerticalPagerSample() {
+    val pagerState = rememberPagerState(pageCount = {
+        10
+    })
+
     // 단일 페이지 스냅으로 1페이지/뷰포트 VerticalPager를 생성합니다.
     VerticalPager(
+        state = pagerState,
         modifier = Modifier.fillMaxSize(),
-        pageCount = 10
     ) { page ->
         Box(
             modifier = Modifier
