@@ -13,6 +13,7 @@ import com.ys.composeplayground.ui.dialog.settings.SettingsDialog
 import com.ys.composeplayground.ui.dialog.settings.SettingsUiState
 import com.ys.composeplayground.core.model.data.ThemeBrand
 import com.ys.composeplayground.ui.dialog.settings.UserEditableSettings
+import com.ys.composeplayground.ui.filter.FilterScreen
 import com.ys.composeplayground.ui.foundation.*
 import com.ys.composeplayground.ui.foundation.layout.SimpleFlowColumn
 import com.ys.composeplayground.ui.foundation.layout.SimpleFlowColumnWithWeights
@@ -148,6 +149,13 @@ val ScrollDemos = DemoCategory(
     )
 )
 
+val CustomDemos = DemoCategory(
+    "Custom Design",
+    listOf(
+        ComposableDemo("Filter") { FilterScreen() },
+    )
+)
+
 val AllDemosCategory = DemoCategory(
     "Jetpack Compose Playground Demos",
     listOf(
@@ -157,5 +165,6 @@ val AllDemosCategory = DemoCategory(
         MaterialDemos,
         ActivityDemos,
         ScrollDemos,
+        CustomDemos,
     )
 )
