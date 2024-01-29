@@ -12,6 +12,7 @@ import com.ys.composeplayground.core.model.data.DarkThemeConfig
 import com.ys.composeplayground.ui.dialog.settings.SettingsDialog
 import com.ys.composeplayground.ui.dialog.settings.SettingsUiState
 import com.ys.composeplayground.core.model.data.ThemeBrand
+import com.ys.composeplayground.ui.canvas.MovingCircleMenuCanvas
 import com.ys.composeplayground.ui.dialog.settings.UserEditableSettings
 import com.ys.composeplayground.ui.filter.FilterScreen
 import com.ys.composeplayground.ui.foundation.*
@@ -157,6 +158,13 @@ val LazyListDemos = DemoCategory(
     )
 )
 
+val CanvasDemos = DemoCategory(
+    "Canvas",
+    listOf(
+        ComposableDemo("Moving circle") { MovingCircleMenuCanvas() },
+    )
+)
+
 val CustomDemos = DemoCategory(
     "Custom Design",
     listOf(
@@ -174,6 +182,7 @@ val AllDemosCategory = DemoCategory(
         ActivityDemos,
         ScrollDemos,
         LazyListDemos,
+        CanvasDemos,
         CustomDemos,
     )
 )
