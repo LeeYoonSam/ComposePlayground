@@ -20,6 +20,7 @@ import com.ys.composeplayground.ui.foundation.layout.SimpleFlowColumnWithWeights
 import com.ys.composeplayground.ui.foundation.layout.SimpleFlowRow
 import com.ys.composeplayground.ui.foundation.layout.SimpleFlowRowWithWeights
 import com.ys.composeplayground.ui.keyboard.*
+import com.ys.composeplayground.ui.lazycolumn.NetflixToolbarScreen
 import com.ys.composeplayground.ui.material.*
 import com.ys.composeplayground.ui.navigation.BottomNavigationAnimationActivity
 import com.ys.composeplayground.ui.scroll.TimerCircleComponent
@@ -149,6 +150,13 @@ val ScrollDemos = DemoCategory(
     )
 )
 
+val LazyListDemos = DemoCategory(
+    "LazyList",
+    listOf(
+        ComposableDemo("NetflixToolbar") { NetflixToolbarScreen() },
+    )
+)
+
 val CustomDemos = DemoCategory(
     "Custom Design",
     listOf(
@@ -165,6 +173,7 @@ val AllDemosCategory = DemoCategory(
         MaterialDemos,
         ActivityDemos,
         ScrollDemos,
+        LazyListDemos,
         CustomDemos,
     )
 )
