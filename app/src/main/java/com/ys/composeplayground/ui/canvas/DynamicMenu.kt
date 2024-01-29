@@ -35,6 +35,12 @@ import kotlin.math.roundToInt
 import kotlin.math.sin
 import kotlin.random.Random
 
+/**
+ * https://dev.to/ardakazanci/creating-dynamic-menus-with-jetpack-compose-68a?signin=true
+ *
+ * https://gist.github.com/ardakazanci/24a29183c8efe1c0adc838fc5bfbea9a
+ */
+
 @Composable
 fun MovingCircleMenuCanvas() {
     var showSubMenu by remember { mutableStateOf(false) }
