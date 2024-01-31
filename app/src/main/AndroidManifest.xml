@@ -36,6 +36,14 @@
 
         <activity
             android:name=".ui.activity.lazycolumn.sectionheader.SectionHeaderLazyColumnActivity" />
+
+        <activity
+            android:name=".ui.sample.payment.CheckoutActivity"
+            android:theme="@style/Theme.ComposePlayground.NoActionBar" />
+
+        <activity
+            android:name=".ui.sample.payment.PaymentActivity"
+            android:theme="@style/Theme.ComposePlayground.NoActionBar" />
     </application>
 
 </manifest>

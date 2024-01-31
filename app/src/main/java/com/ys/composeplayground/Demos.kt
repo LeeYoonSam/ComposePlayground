@@ -24,6 +24,8 @@ import com.ys.composeplayground.ui.keyboard.*
 import com.ys.composeplayground.ui.lazycolumn.NetflixToolbarScreen
 import com.ys.composeplayground.ui.material.*
 import com.ys.composeplayground.ui.navigation.BottomNavigationAnimationActivity
+import com.ys.composeplayground.ui.sample.payment.CheckoutActivity
+import com.ys.composeplayground.ui.sample.payment.PaymentActivity
 import com.ys.composeplayground.ui.scroll.TimerCircleComponent
 import com.ys.composeplayground.ui.scroll.TimerComponent
 
@@ -130,6 +132,7 @@ val ActivityDemos = DemoCategory(
         ActivityDemo("BottomNavigationAnimationActivity", BottomNavigationAnimationActivity::class),
         ActivityDemo("KeyboardHandlingActivity", KeyboardHandlingActivity::class),
         ActivityDemo("AnimatedLazyColumnSectionHeader", SectionHeaderLazyColumnActivity::class),
+        ActivityDemo("Payment Sample", CheckoutActivity::class),
     )
 )
 

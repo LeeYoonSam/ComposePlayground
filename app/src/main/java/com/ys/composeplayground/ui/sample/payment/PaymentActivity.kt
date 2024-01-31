@@ -1,9 +1,11 @@
 package com.ys.composeplayground.ui.sample.payment
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -21,49 +23,31 @@ class PaymentActivity : AppCompatActivity() {
 
         setContent {
             ComposePlaygroundTheme {
-                Column {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    verticalArrangement = Arrangement.Bottom
+                ) {
                     Button(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(4.dp),
                         onClick = { /*TODO*/ }
                     ) {
-                        Text(text = "작품 결제하기")
-                    }
-                    Button(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(4.dp),
-                        onClick = { /*TODO*/ }
-                    ) {
-                        Text(text = "선물 결제하기")
-                    }
-                    Button(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(4.dp),
-                        onClick = { /*TODO*/ }
-                    ) {
-                        Text(text = "기프트카드 결제하기")
-                    }
-                    Button(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(4.dp),
-                        onClick = { /*TODO*/ }
-                    ) {
-                        Text(text = "후원 결제하기")
-                    }
-                    Button(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(4.dp),
-                        onClick = { /*TODO*/ }
-                    ) {
-                        Text(text = "클래스 결제하기")
+                        Text(text = "결제")
                     }
                 }
             }
+        }
+    }
+
+    companion object {
+        fun start(
+            context: Context,
+        ) {
+            context.startActivity(
+                Intent(context, PaymentActivity::class.java)
+            )
         }
     }
 }
