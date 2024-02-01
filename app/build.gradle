@@ -141,6 +141,9 @@ dependencies {
 
     implementation("com.google.dagger:hilt-android:2.50")
     kapt("com.google.dagger:hilt-android-compiler:2.50")
+
+    // for updating the status bar color from Compose
+    implementation "com.google.accompanist:accompanist-systemuicontroller:0.23.1"
 }
 
 // Allow references to generated code
