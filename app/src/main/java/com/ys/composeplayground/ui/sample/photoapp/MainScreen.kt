@@ -23,7 +23,7 @@ fun MainScreen() {
             if (id == null) {
                 Feed(
                     photographersFlow = viewModel.photographers,
-                    onSelected = {}
+                    onSelected = { selectedId = it.id }
                 )
             } else {
                 Text(text = "Profile - ${viewModel.getById(id)}")

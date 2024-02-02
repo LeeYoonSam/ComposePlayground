@@ -29,12 +29,17 @@ fun Feed(
                 FeedHeader()
             }
             items(photographers.subList(fromIndex = 0, toIndex = minOf(photographers.size, 2))) {
-                Text(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    text = it.name,
-                )
+                PhotographerCard(photographer = it, onClick = { onSelected(it) })
             }
+            if (photographers.size > 2) {
+                item {
+                    AdBanner()
+                }
+                items(photographers.subList(fromIndex = 2, toIndex = photographers.size)) {
+                    PhotographerCard(photographer = it, onClick = { onSelected(it) })
+                }
+            }
+
         }
         FeedFab(
             state = state,
