@@ -21,8 +21,11 @@ fun Profile(photographer: Photographer, modifier: Modifier = Modifier) {
     ) {
         TutorialOverlay { tutorialHighlightModifier ->
             Column(Modifier.padding(top = 24.dp)) {
-                Text(text = "Profile - $photographer")
                 Spacer(modifier = Modifier.weight(1f))
+                ProfileHeader(
+                    photographer = photographer,
+                    tutorialHighlightModifier = tutorialHighlightModifier
+                )
                 Text(text = "Profile Header")
                 Spacer(modifier = Modifier.weight(1f))
                 Text(text = "Tag List")
