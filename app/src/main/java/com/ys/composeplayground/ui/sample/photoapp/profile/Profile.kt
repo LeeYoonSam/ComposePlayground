@@ -15,9 +15,13 @@ import androidx.compose.material.Surface
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.ys.composeplayground.ui.sample.photoapp.Photographer
+import com.ys.composeplayground.ui.sample.photoapp.common.RoundedHeader
 
 @Composable
 fun Profile(photographer: Photographer, modifier: Modifier = Modifier) {
@@ -40,8 +44,23 @@ fun Profile(photographer: Photographer, modifier: Modifier = Modifier) {
                     modifier = Modifier.padding(vertical = padding)
                 )
                 Spacer(modifier = Modifier.weight(1f))
-                Text(text = "PortfolioCard")
+                PortfolioCard(groupedPhotos = photographer.photos)
             }
+        }
+    }
+}
+
+@Composable
+private fun PortfolioCard(groupedPhotos: Map<String, List<Int>>) {
+    val groups = groupedPhotos.keys.toList()
+    RoundedHeader(title = "Portfolio")
+    Surface {
+        Column {
+            val selectedGroup by rememberSaveable { mutableStateOf(groups.first()) }
+            PhotosGrid(
+                images = groupedPhotos.getValue(selectedGroup),
+                modifier = Modifier.padding(top = 8.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
+            )
         }
     }
 }

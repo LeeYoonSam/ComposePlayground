@@ -1,4 +1,4 @@
-package com.ys.composeplayground.ui.sample.photoapp.feed
+package com.ys.composeplayground.ui.sample.photoapp.common
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
