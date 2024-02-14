@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.ys.composeplayground.ui.sample.photoapp.Photographer
@@ -56,7 +57,12 @@ private fun PortfolioCard(groupedPhotos: Map<String, List<Int>>) {
     RoundedHeader(title = "Portfolio")
     Surface {
         Column {
-            val selectedGroup by rememberSaveable { mutableStateOf(groups.first()) }
+            var selectedGroup by rememberSaveable { mutableStateOf(groups.first()) }
+            PhotosTab(
+                groups = groups,
+                selectedGroup = selectedGroup,
+                onSelected = { selectedGroup = it }
+            )
             PhotosGrid(
                 images = groupedPhotos.getValue(selectedGroup),
                 modifier = Modifier.padding(top = 8.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
