@@ -1,4 +1,4 @@
-package com.ys.composeplayground.ui.sample.product.components
+package com.ys.composeplayground.ui.sample.product.components.badge
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth

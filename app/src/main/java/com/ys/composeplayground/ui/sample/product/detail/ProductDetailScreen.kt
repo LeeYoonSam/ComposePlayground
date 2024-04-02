@@ -28,10 +28,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ys.composeplayground.R
-import com.ys.composeplayground.ui.sample.product.components.BadgeModel
-import com.ys.composeplayground.ui.sample.product.components.Badges
-import com.ys.composeplayground.ui.sample.product.components.StarRatingBar
-import com.ys.composeplayground.ui.sample.product.components.badges
+import com.ys.composeplayground.ui.sample.product.components.badge.BadgeModel
+import com.ys.composeplayground.ui.sample.product.components.badge.Badges
+import com.ys.composeplayground.ui.sample.product.components.ratingbar.StarRatingBar
+import com.ys.composeplayground.ui.sample.product.components.badge.badges
 import com.ys.composeplayground.ui.theme.ComposePlaygroundTheme
 
 @Composable
