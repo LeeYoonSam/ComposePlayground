@@ -18,6 +18,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ys.composeplayground.ui.theme.ComposePlaygroundTheme
+import com.ys.composeplayground.ui.theme.CustomTypography
 
 @Composable
 fun Badge(badgeModel: BadgeModel) {
@@ -40,6 +41,7 @@ fun Badge(badgeModel: BadgeModel) {
         }
         Text(
             text = badgeModel.badgeText,
+            style = CustomTypography.caption2BoldSmall,
             fontSize = badgeModel.badgeTextSize,
             color = badgeModel.badgeTextColor,
         )

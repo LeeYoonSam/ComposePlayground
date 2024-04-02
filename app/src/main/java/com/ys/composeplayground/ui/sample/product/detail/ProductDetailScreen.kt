@@ -33,6 +33,9 @@ import com.ys.composeplayground.ui.sample.product.components.badge.Badges
 import com.ys.composeplayground.ui.sample.product.components.ratingbar.StarRatingBar
 import com.ys.composeplayground.ui.sample.product.components.badge.badges
 import com.ys.composeplayground.ui.theme.ComposePlaygroundTheme
+import com.ys.composeplayground.ui.theme.Grey333
+import com.ys.composeplayground.ui.theme.CustomTypography
+import com.ys.composeplayground.ui.theme.Navy500
 
 @Composable
 fun ProductDetailScreen() {
@@ -111,8 +114,8 @@ fun ProductInfoArtist() {
             )
             Text(
                 text = "캬옹이",
-                fontSize = 12.sp,
-                color = Color.DarkGray,
+                style = CustomTypography.body3BoldSmall,
+                color = Grey333,
             )
             Image(
                 modifier = Modifier.size(12.dp),
@@ -129,9 +132,15 @@ fun ProductInfoArtist() {
             )
             Text(
                 modifier = Modifier.padding(start = 4.dp),
-                text = "4.8(521)",
-                fontSize = 12.sp,
-                color = Color.DarkGray,
+                text = "4.8",
+                style = CustomTypography.body1BoldSmall,
+                color = Navy500,
+            )
+            Text(
+                modifier = Modifier.padding(start = 2.dp),
+                text = "(521)",
+                style = CustomTypography.body1RegularSmall,
+                color = Navy500,
             )
             Image(
                 modifier = Modifier.size(12.dp),
