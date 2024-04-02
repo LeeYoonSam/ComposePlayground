@@ -2,7 +2,6 @@ package com.ys.composeplayground.ui.sample.product.detail
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -12,13 +11,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowForwardIos
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -31,7 +28,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ys.composeplayground.R
+import com.ys.composeplayground.ui.sample.product.components.BadgeModel
+import com.ys.composeplayground.ui.sample.product.components.Badges
 import com.ys.composeplayground.ui.sample.product.components.StarRatingBar
+import com.ys.composeplayground.ui.sample.product.components.badges
 import com.ys.composeplayground.ui.theme.ComposePlaygroundTheme
 
 @Composable
@@ -75,13 +75,15 @@ fun ImageUnit() {
 
 @Composable
 fun ProductBaseInfo() {
-    Box(
+    val productBadges = badges
+    Column(
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight()
             .padding(horizontal = 16.dp),
     ) {
         ProductInfoArtist()
+        ProductInfoBadges(productBadges)
     }
 }
 
@@ -138,6 +140,21 @@ fun ProductInfoArtist() {
                 contentDescription = "arrow right"
             )
         }
+    }
+}
+
+@Composable
+fun ProductInfoBadges(productBadges: List<BadgeModel>) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(30.dp),
+        contentAlignment = Alignment.CenterStart
+    ) {
+        Badges(
+            badges = productBadges,
+            badgeSpace = 4.dp
+        )
     }
 }
 
