@@ -45,8 +45,8 @@
             android:name=".ui.sample.payment.PaymentActivity"
             android:theme="@style/Theme.ComposePlayground.NoActionBar" />
 
-        <activity
-            android:name=".ui.sample.photoapp.PhotoMainActivity" />
+        <activity android:name=".ui.sample.photoapp.PhotoMainActivity" />
+        <activity android:name=".ui.sample.product.ProductDetailMainActivity" />
     </application>
 
 </manifest>
