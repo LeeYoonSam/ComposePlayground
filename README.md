@@ -137,6 +137,29 @@ fun <T> staticCompositionLocalOf(defaultFactory: () -> T): ProvidableComposition
     StaticProvidableCompositionLocal(defaultFactory)
 ```
 
+### Typography 사용 예시
+```kotlin
+// CompositionLocal for MyTypography
+val LocalMyTypography = staticCompositionLocalOf { MyTypography() }
+
+@Composable
+fun MyTheme(
+    typography: MyTypography = MyTypography(),
+    content: @Composable () -> Unit
+) {
+    CompositionLocalProvider(LocalMyTypography provides typography) {
+        content()
+    }
+}
+```
+- staticCompositionLocalOf - 특정 타입의 데이터 보유
+  - 여기서는 MyTypography 타입을 보유하고 있고 MyTypography() 로 **기본값**을 지정
+  - 이 기본값은 CompositionLocalProvider를 통해 제공된 값이 없을 때 사용됩니다.
+- MyTypography() 인스턴스를 2번 생성하는것 같은 부분에 대해 해석
+  - 기본값 설정: `staticCompositionLocalOf { MyTypography() }`는 CompositionLocal의 기본값을 설정하는 역할을 합니다.
+  - 우선 순위: CompositionLocalProvider를 통해 전달된 값이 있으면, 해당 값이 우선적으로 사용되며, 기본값은 사용되지 않습니다.
+  - 안전성: 기본값을 설정해 둠으로써, 특정 CompositionLocal이 실제로 제공되지 않는 경우에도 안전하게 기본 인스턴스를 사용할 수 있습니다.
+
 ## compositionLocalOf
 - CompositionLocalProvider를 사용하여 제공할 수 있는 CompositionLocal 키를 생성합니다. 
 - 재구성 중에 제공된 값을 변경하면 CompositionLocal.current를 사용하여 값을 읽은 CompositionLocalProvider의 내용이 무효화됩니다.
