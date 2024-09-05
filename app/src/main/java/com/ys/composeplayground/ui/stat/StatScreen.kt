@@ -219,7 +219,7 @@ fun PlayerCountItemPreview() {
     PlayerCountItem(player)
 }
 
-@Preview(device = Devices.TABLET)
+@Preview
 @Composable
 fun StatScreenPreview() {
     val players = listOf(

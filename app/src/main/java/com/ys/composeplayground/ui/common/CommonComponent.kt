@@ -14,6 +14,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -27,6 +28,8 @@ import com.ys.composeplayground.ComposableDemo
 import com.ys.composeplayground.Demo
 import com.ys.composeplayground.DemoCategory
 import com.ys.composeplayground.Tags
+import com.ys.composeplayground.ui.snackbar.SnackbarController
+import com.ys.composeplayground.ui.snackbar.SnackbarControllerProvider
 import com.ys.composeplayground.ui.theme.CustomTypography
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -62,15 +65,18 @@ fun DemoApp(
     backStackTitle: String,
     onNavigateToDemo: (Demo) -> Unit,
 ) {
-    Scaffold(
-        topBar = {
-            DemoAppBar(
-                title = backStackTitle,
-            )
+    SnackbarControllerProvider { host ->
+        Scaffold(
+            snackbarHost = { SnackbarHost(hostState = host) },
+            topBar = {
+                DemoAppBar(
+                    title = backStackTitle,
+                )
+            }
+        ) { innerPadding ->
+            val modifier = Modifier.padding(innerPadding)
+            DemoContent(modifier, currentDemo, onNavigateToDemo)
         }
-    ) { innerPadding ->
-        val modifier = Modifier.padding(innerPadding)
-        DemoContent(modifier, currentDemo, onNavigateToDemo)
     }
 }
 
@@ -99,12 +105,11 @@ private fun DisplayDemo(demo: Demo, onNavigate: (Demo) -> Unit) {
 }
 
 @Composable
-@OptIn(ExperimentalMaterial3Api::class)
 private fun DisplayDemoCategory(category: DemoCategory, onNavigate: (Demo) -> Unit) {
     Column(Modifier.verticalScroll(rememberScrollState())) {
         category.demos.forEach { demo ->
             ListItem(
-                headlineText = {
+                headlineContent = {
                     Text(
                         modifier = Modifier
                             .height(56.dp)

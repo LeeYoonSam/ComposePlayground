@@ -43,10 +43,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.ys.composeplayground.ui.snackbar.SnackbarController
 import com.ys.composeplayground.ui.theme.ComposePlaygroundTheme
 
 @Composable
 fun FilterScreen(filterViewModel: FilterViewModel = viewModel()) {
+    val snackbar = SnackbarController.current
+
     Column(
         modifier = Modifier
             .verticalScroll(rememberScrollState())
@@ -57,7 +60,9 @@ fun FilterScreen(filterViewModel: FilterViewModel = viewModel()) {
 
         // 각 필터의 선택된 옵션들을 표시
         filterViewModel.apply {
-            Text(applyFilters())
+            val filterResult = applyFilters()
+            Text(filterResult)
+            snackbar.showMessage(filterResult)
         }
 
         Spacer(modifier = Modifier.height(16.dp))

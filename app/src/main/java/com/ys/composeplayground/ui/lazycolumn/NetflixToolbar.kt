@@ -132,7 +132,7 @@ fun PrimaryAppBar(
             .height(toolbarHeight),
         navigationIcon = navigationIcon,
         actions = actions,
-        colors = TopAppBarDefaults.smallTopAppBarColors(
+        colors = TopAppBarDefaults.topAppBarColors(
             containerColor = backgroundColor,
         ),
     )
