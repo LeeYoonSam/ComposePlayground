@@ -58,7 +58,6 @@ fun DemoAppBar(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DemoApp(
     currentDemo: Demo,
