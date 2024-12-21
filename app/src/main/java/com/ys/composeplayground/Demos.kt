@@ -24,6 +24,7 @@ import com.ys.composeplayground.ui.keyboard.*
 import com.ys.composeplayground.ui.lazycolumn.NetflixToolbarScreen
 import com.ys.composeplayground.ui.material.*
 import com.ys.composeplayground.ui.navigation.BottomNavigationAnimationActivity
+import com.ys.composeplayground.ui.sample.drawing.DrawingActivity
 import com.ys.composeplayground.ui.sample.payment.CheckoutActivity
 import com.ys.composeplayground.ui.sample.photoapp.PhotoMainActivity
 import com.ys.composeplayground.ui.sample.product.ProductDetailMainActivity
@@ -136,6 +137,7 @@ val ActivityDemos = DemoCategory(
         ActivityDemo("Payment Sample", CheckoutActivity::class),
         ActivityDemo("PhotoApp Sample", PhotoMainActivity::class),
         ActivityDemo("Product.Detail Sample", ProductDetailMainActivity::class),
+        ActivityDemo("DrawingCanvas", DrawingActivity::class),
     )
 )
 
