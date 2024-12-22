@@ -12,6 +12,7 @@ import com.ys.composeplayground.core.model.data.DarkThemeConfig
 import com.ys.composeplayground.ui.dialog.settings.SettingsDialog
 import com.ys.composeplayground.ui.dialog.settings.SettingsUiState
 import com.ys.composeplayground.core.model.data.ThemeBrand
+import com.ys.composeplayground.ui.animation.xmas.XmasActivity
 import com.ys.composeplayground.ui.canvas.MovingCircleMenuCanvas
 import com.ys.composeplayground.ui.dialog.settings.UserEditableSettings
 import com.ys.composeplayground.ui.filter.FilterScreen
@@ -36,6 +37,7 @@ val Animation = DemoCategory(
     listOf(
         ComposableDemo("Crossfade") { CrossfadeDemo() },
         ComposableDemo("LottieLoadingResult") { LottieLoadingResultScreen() },
+        ActivityDemo("Xmas Animation", XmasActivity::class),
     )
 )
 

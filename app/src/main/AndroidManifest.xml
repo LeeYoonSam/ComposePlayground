@@ -47,6 +47,7 @@
         <activity android:name=".ui.sample.photoapp.PhotoMainActivity" />
         <activity android:name=".ui.sample.product.ProductDetailMainActivity" />
         <activity android:name=".ui.sample.drawing.DrawingActivity" />
+        <activity android:name=".ui.animation.xmas.XmasActivity" />
     </application>
 
 </manifest>
