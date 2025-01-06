@@ -4,11 +4,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import com.ys.composeplayground.core.model.data.DarkThemeConfig
+import com.ys.composeplayground.core.model.data.ThemeBrand
 import com.ys.composeplayground.ui.activity.lazycolumn.sectionheader.SectionHeaderLazyColumnActivity
 import com.ys.composeplayground.ui.album.AlbumActivity
 import com.ys.composeplayground.ui.animation.CrossfadeDemo
 import com.ys.composeplayground.ui.animation.LottieLoadingResultScreen
-import com.ys.composeplayground.core.model.data.DarkThemeConfig
+import com.ys.composeplayground.ui.canvas.MovingCircleMenuCanvas
 import com.ys.composeplayground.ui.dialog.settings.SettingsDialog
 import com.ys.composeplayground.ui.dialog.settings.SettingsUiState
 import com.ys.composeplayground.core.model.data.ThemeBrand
@@ -16,14 +18,45 @@ import com.ys.composeplayground.ui.animation.xmas.XmasActivity
 import com.ys.composeplayground.ui.canvas.MovingCircleMenuCanvas
 import com.ys.composeplayground.ui.dialog.settings.UserEditableSettings
 import com.ys.composeplayground.ui.filter.FilterScreen
-import com.ys.composeplayground.ui.foundation.*
+import com.ys.composeplayground.ui.foundation.BaseTextField
+import com.ys.composeplayground.ui.foundation.CanvasDrawExample
+import com.ys.composeplayground.ui.foundation.ImageResourceDemo
+import com.ys.composeplayground.ui.foundation.LazyColumnDemo
+import com.ys.composeplayground.ui.foundation.LazyRowDemo
+import com.ys.composeplayground.ui.foundation.LazyVerticalGridCompositeSample
+import com.ys.composeplayground.ui.foundation.LazyVerticalGridDemo
+import com.ys.composeplayground.ui.foundation.LazyVerticalGridSpanSample
+import com.ys.composeplayground.ui.foundation.SelectionSample
+import com.ys.composeplayground.ui.foundation.ShapeDemo
+import com.ys.composeplayground.ui.foundation.SimpleVerticalPagerSample
+import com.ys.composeplayground.ui.foundation.TextDemo
 import com.ys.composeplayground.ui.foundation.layout.SimpleFlowColumn
 import com.ys.composeplayground.ui.foundation.layout.SimpleFlowColumnWithWeights
 import com.ys.composeplayground.ui.foundation.layout.SimpleFlowRow
 import com.ys.composeplayground.ui.foundation.layout.SimpleFlowRowWithWeights
-import com.ys.composeplayground.ui.keyboard.*
+import com.ys.composeplayground.ui.grid.chip.GridChipScreenDemo
+import com.ys.composeplayground.ui.keyboard.KeyboardHandlingActivity
+import com.ys.composeplayground.ui.keyboard.KeyboardHandlingDemo1
+import com.ys.composeplayground.ui.keyboard.KeyboardHandlingMultipleTextFieldsDemo
+import com.ys.composeplayground.ui.keyboard.KeyboardLazyColumnDemo
+import com.ys.composeplayground.ui.keyboard.ShowingHidingKeyboardDemo
 import com.ys.composeplayground.ui.lazycolumn.NetflixToolbarScreen
-import com.ys.composeplayground.ui.material.*
+import com.ys.composeplayground.ui.material.AlertDialogSample
+import com.ys.composeplayground.ui.material.BadgeBoxDemo
+import com.ys.composeplayground.ui.material.ButtonDemos
+import com.ys.composeplayground.ui.material.CardDemo
+import com.ys.composeplayground.ui.material.CheckboxDemo
+import com.ys.composeplayground.ui.material.CircularProgressIndicatorDemo
+import com.ys.composeplayground.ui.material.FloatingActionButtonDemos
+import com.ys.composeplayground.ui.material.LinearProgressIndicatorDemo
+import com.ys.composeplayground.ui.material.ModalBottomSheetDemo
+import com.ys.composeplayground.ui.material.ModalDrawerDemo
+import com.ys.composeplayground.ui.material.RadioButtonDemo
+import com.ys.composeplayground.ui.material.ScaffoldDemo
+import com.ys.composeplayground.ui.material.SliderDemo
+import com.ys.composeplayground.ui.material.SnackbarDemo
+import com.ys.composeplayground.ui.material.SurfaceDemo
+import com.ys.composeplayground.ui.material.SwitchDemo
 import com.ys.composeplayground.ui.navigation.BottomNavigationAnimationActivity
 import com.ys.composeplayground.ui.sample.drawing.DrawingActivity
 import com.ys.composeplayground.ui.sample.payment.CheckoutActivity
@@ -60,6 +93,7 @@ val FoundationDemos = DemoCategory(
         ComposableDemo("FlowColumn - weight") { SimpleFlowColumnWithWeights() },
         ComposableDemo("FlowRow") { SimpleFlowRow() },
         ComposableDemo("FlowRow - weight") { SimpleFlowRowWithWeights() },
+        ComposableDemo("Grid - Chip") { GridChipScreenDemo() },
     )
 )
 
