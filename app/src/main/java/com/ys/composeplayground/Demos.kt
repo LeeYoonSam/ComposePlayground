@@ -11,6 +11,7 @@ import com.ys.composeplayground.ui.album.AlbumActivity
 import com.ys.composeplayground.ui.animation.CrossfadeDemo
 import com.ys.composeplayground.ui.animation.LottieLoadingResultScreen
 import com.ys.composeplayground.ui.animation.xmas.XmasActivity
+import com.ys.composeplayground.ui.canvas.DynamicStampScreen
 import com.ys.composeplayground.ui.canvas.MovingCircleMenuCanvas
 import com.ys.composeplayground.ui.dialog.settings.SettingsDialog
 import com.ys.composeplayground.ui.dialog.settings.SettingsUiState
@@ -204,6 +205,7 @@ val CanvasDemos = DemoCategory(
     "Canvas",
     listOf(
         ComposableDemo("Moving circle") { MovingCircleMenuCanvas() },
+        ComposableDemo("Dynamic Stamp") { DynamicStampScreen() },
     )
 )
 
