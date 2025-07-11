@@ -10,12 +10,10 @@ import com.ys.composeplayground.ui.activity.lazycolumn.sectionheader.SectionHead
 import com.ys.composeplayground.ui.album.AlbumActivity
 import com.ys.composeplayground.ui.animation.CrossfadeDemo
 import com.ys.composeplayground.ui.animation.LottieLoadingResultScreen
+import com.ys.composeplayground.ui.animation.xmas.XmasActivity
 import com.ys.composeplayground.ui.canvas.MovingCircleMenuCanvas
 import com.ys.composeplayground.ui.dialog.settings.SettingsDialog
 import com.ys.composeplayground.ui.dialog.settings.SettingsUiState
-import com.ys.composeplayground.core.model.data.ThemeBrand
-import com.ys.composeplayground.ui.animation.xmas.XmasActivity
-import com.ys.composeplayground.ui.canvas.MovingCircleMenuCanvas
 import com.ys.composeplayground.ui.dialog.settings.UserEditableSettings
 import com.ys.composeplayground.ui.filter.FilterScreen
 import com.ys.composeplayground.ui.foundation.BaseTextField
