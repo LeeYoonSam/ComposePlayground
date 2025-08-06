@@ -1,4 +1,4 @@
-package com.ys.composeplayground.ui.filter
+package com.ys.composeplayground.ui.custom.filter
 
 data class FilterSectionModel(
     val title: String,
