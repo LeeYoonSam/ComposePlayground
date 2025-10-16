@@ -17,6 +17,7 @@ import com.ys.composeplayground.ui.dialog.settings.SettingsDialog
 import com.ys.composeplayground.ui.dialog.settings.SettingsUiState
 import com.ys.composeplayground.ui.dialog.settings.UserEditableSettings
 import com.ys.composeplayground.ui.custom.filter.FilterScreen
+import com.ys.composeplayground.ui.custom.orderstatus.OrderStatusScreen
 import com.ys.composeplayground.ui.custom.timeline.TimelineScreen
 import com.ys.composeplayground.ui.foundation.BaseTextField
 import com.ys.composeplayground.ui.foundation.CanvasDrawExample
@@ -215,6 +216,7 @@ val CustomDemos = DemoCategory(
     listOf(
         ComposableDemo("Filter") { FilterScreen() },
         ComposableDemo("Timeline") { TimelineScreen() },
+        ComposableDemo("ShippingProgress") { OrderStatusScreen() },
     )
 )
 
