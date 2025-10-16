@@ -43,7 +43,7 @@ fun OrderProgressNode(
         val animatedColor by animateColorAsState(
             targetValue = if (isEnabled) Orange500 else Grey300,
             animationSpec = spring(
-                dampingRatio = Spring.DampingRatioMediumBouncy,
+                dampingRatio = Spring.DampingRatioNoBouncy, // overshoot 방지
                 stiffness = Spring.StiffnessLow
             ),
             label = "nodeColorAnimation"

@@ -41,7 +41,7 @@ fun OrderProgressBar(
         val animatedProgress by animateFloatAsState(
             targetValue = progress.coerceIn(0f, 1f),
             animationSpec = spring(
-                dampingRatio = Spring.DampingRatioMediumBouncy,
+                dampingRatio = Spring.DampingRatioNoBouncy, // overshoot 방지
                 stiffness = Spring.StiffnessMediumLow
             ),
             label = "progressAnimation"
@@ -72,9 +72,11 @@ fun OrderProgressBar(
         )
 
         // 진행된 라인 (완료 부분)
-        if (displayProgress > 0f) {
+        // Spring 애니메이션의 overshoot를 방지하기 위해 coerceIn 적용
+        val clampedProgress = displayProgress.coerceIn(0f, 1f)
+        if (clampedProgress > 0f) {
             val progressEndOffset = Offset(
-                x = canvasWidth * displayProgress,
+                x = canvasWidth * clampedProgress,
                 y = canvasHeight / 2f
             )
 
