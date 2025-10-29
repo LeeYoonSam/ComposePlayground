@@ -13,12 +13,12 @@ import com.ys.composeplayground.ui.animation.LottieLoadingResultScreen
 import com.ys.composeplayground.ui.animation.xmas.XmasActivity
 import com.ys.composeplayground.ui.canvas.DynamicStampScreen
 import com.ys.composeplayground.ui.canvas.MovingCircleMenuCanvas
-import com.ys.composeplayground.ui.dialog.settings.SettingsDialog
-import com.ys.composeplayground.ui.dialog.settings.SettingsUiState
-import com.ys.composeplayground.ui.dialog.settings.UserEditableSettings
 import com.ys.composeplayground.ui.custom.filter.FilterScreen
 import com.ys.composeplayground.ui.custom.orderstatus.OrderStatusScreen
 import com.ys.composeplayground.ui.custom.timeline.TimelineScreen
+import com.ys.composeplayground.ui.dialog.settings.SettingsDialog
+import com.ys.composeplayground.ui.dialog.settings.SettingsUiState
+import com.ys.composeplayground.ui.dialog.settings.UserEditableSettings
 import com.ys.composeplayground.ui.foundation.BaseTextField
 import com.ys.composeplayground.ui.foundation.CanvasDrawExample
 import com.ys.composeplayground.ui.foundation.ImageResourceDemo
@@ -58,6 +58,7 @@ import com.ys.composeplayground.ui.material.SliderDemo
 import com.ys.composeplayground.ui.material.SnackbarDemo
 import com.ys.composeplayground.ui.material.SurfaceDemo
 import com.ys.composeplayground.ui.material.SwitchDemo
+import com.ys.composeplayground.ui.modifier.LookaheadDemos
 import com.ys.composeplayground.ui.navigation.BottomNavigationAnimationActivity
 import com.ys.composeplayground.ui.sample.drawing.DrawingActivity
 import com.ys.composeplayground.ui.sample.payment.CheckoutActivity
@@ -95,6 +96,13 @@ val FoundationDemos = DemoCategory(
         ComposableDemo("FlowRow") { SimpleFlowRow() },
         ComposableDemo("FlowRow - weight") { SimpleFlowRowWithWeights() },
         ComposableDemo("Grid - Chip") { GridChipScreenDemo() },
+    )
+)
+
+val ModifierDemos = DemoCategory(
+    "Modifiers",
+    listOf(
+        ComposableDemo("ApproachLayout (Lookahead)") { LookaheadDemos() },
     )
 )
 
@@ -225,6 +233,7 @@ val AllDemosCategory = DemoCategory(
     listOf(
         Animation,
         FoundationDemos,
+        ModifierDemos,
         DialogDemos,
         MaterialDemos,
         ActivityDemos,
