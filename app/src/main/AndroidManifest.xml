@@ -48,6 +48,10 @@
         <activity android:name=".ui.sample.product.ProductDetailMainActivity" />
         <activity android:name=".ui.sample.drawing.DrawingActivity" />
         <activity android:name=".ui.animation.xmas.XmasActivity" />
+
+        <!-- Scroll Timer Activities -->
+        <activity android:name=".ui.scroll.timer.ScrollTimerActivity" />
+        <activity android:name=".ui.scroll.timer.ScrollTimerComposeActivity" />
     </application>
 
 </manifest>

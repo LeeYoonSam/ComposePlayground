@@ -66,6 +66,8 @@ import com.ys.composeplayground.ui.sample.photoapp.PhotoMainActivity
 import com.ys.composeplayground.ui.sample.product.ProductDetailMainActivity
 import com.ys.composeplayground.ui.scroll.TimerCircleComponent
 import com.ys.composeplayground.ui.scroll.TimerComponent
+import com.ys.composeplayground.ui.scroll.timer.ScrollTimerActivity
+import com.ys.composeplayground.ui.scroll.timer.ScrollTimerComposeActivity
 
 val Animation = DemoCategory(
     "Animations",
@@ -228,6 +230,14 @@ val CustomDemos = DemoCategory(
     )
 )
 
+val ScrollTimerDemos = DemoCategory(
+    "Scroll Timer",
+    listOf(
+        ActivityDemo("RecyclerView 버전", ScrollTimerActivity::class),
+        ActivityDemo("LazyColumn 버전", ScrollTimerComposeActivity::class),
+    )
+)
+
 val AllDemosCategory = DemoCategory(
     "Jetpack Compose Playground Demos",
     listOf(
@@ -241,5 +251,6 @@ val AllDemosCategory = DemoCategory(
         LazyListDemos,
         CanvasDemos,
         CustomDemos,
+        ScrollTimerDemos,
     )
 )
