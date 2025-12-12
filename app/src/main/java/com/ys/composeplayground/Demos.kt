@@ -10,6 +10,7 @@ import com.ys.composeplayground.ui.activity.lazycolumn.sectionheader.SectionHead
 import com.ys.composeplayground.ui.album.AlbumActivity
 import com.ys.composeplayground.ui.animation.ColorTransitionDemo
 import com.ys.composeplayground.ui.animation.CrossfadeDemo
+import com.ys.composeplayground.ui.animation.ExpandableContentDemo
 import com.ys.composeplayground.ui.animation.LottieLoadingResultScreen
 import com.ys.composeplayground.ui.animation.PressScaleDemo
 import com.ys.composeplayground.ui.animation.xmas.XmasActivity
@@ -76,6 +77,7 @@ val Animation = DemoCategory(
     listOf(
         ComposableDemo("\uD83D\uDFE2 Beginner #1: 버튼 Press 스케일 애니메이션") { PressScaleDemo() },
         ComposableDemo("\uD83D\uDFE2 Beginner #2: 색상 전환 애니메이션") { ColorTransitionDemo() },
+        ComposableDemo("\uD83D\uDFE2 Beginner #3: 확장/축소 콘텐츠 애니메이션") { ExpandableContentDemo() },
         ComposableDemo("LottieLoadingResult") { LottieLoadingResultScreen() },
         ComposableDemo("Crossfade") { CrossfadeDemo() },
         ActivityDemo("Xmas Animation", XmasActivity::class),

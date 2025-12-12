@@ -44,6 +44,31 @@ import androidx.compose.ui.unit.sp
 /**
  * 🟢 Beginner #2: 색상 전환 애니메이션
  *
+ * 📖 핵심 개념
+ *
+ * animateColorAsState는 색상 값의 변화를 감지하고 자동으로 부드러운 전환을 제공해요. 내부적으로 RGB 각 채널을 보간하여 자연스럽게 전환됩니다.
+ *
+ * 🎯 학습 포인트
+ *
+ * API | 역할
+ * --- | ---
+ * animateColorAsState | 색상 값을 부드럽게 애니메이션
+ * tween | 지정된 시간 동안 선형 보간
+ * spring | 물리 기반 탄성 애니메이션
+ * Easing | 애니메이션 속도 곡선 조절
+ *
+ * 💡 동작 원리
+ * ```
+ * [상태 A] → Color.Red
+ *     ↓ animateColorAsState (RGB 보간)
+ * [상태 B] → Color.Blue
+ *
+ * 내부적으로:
+ * R: 255 → 0
+ * G: 0 → 0
+ * B: 0 → 255
+ * ```
+ *
  * 학습 목표:
  * 1. animateColorAsState 사용법
  * 2. tween vs spring animationSpec
@@ -431,25 +456,6 @@ fun ColorTransitionDemo() {
         AnimationSpecGuide()
 
         Spacer(modifier = Modifier.height(16.dp))
-    }
-}
-
-@Composable
-fun DemoSection(
-    title: String,
-    content: @Composable () -> Unit
-) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(12.dp)
-    ) {
-        Text(
-            text = title,
-            fontSize = 14.sp,
-            color = Color.Gray,
-            fontWeight = FontWeight.Medium
-        )
-        content()
     }
 }
 
