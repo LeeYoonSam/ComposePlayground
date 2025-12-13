@@ -14,6 +14,7 @@ import com.ys.composeplayground.ui.animation.ExpandableContentDemo
 import com.ys.composeplayground.ui.animation.FadeInOutDemo
 import com.ys.composeplayground.ui.animation.LottieLoadingResultScreen
 import com.ys.composeplayground.ui.animation.PressScaleDemo
+import com.ys.composeplayground.ui.animation.ShimmerDemo
 import com.ys.composeplayground.ui.animation.SlideAnimationDemo
 import com.ys.composeplayground.ui.animation.xmas.XmasActivity
 import com.ys.composeplayground.ui.canvas.DynamicStampScreen
@@ -82,6 +83,7 @@ val Animation = DemoCategory(
         ComposableDemo("\uD83D\uDFE2 Beginner #3: 확장/축소 콘텐츠 애니메이션") { ExpandableContentDemo() },
         ComposableDemo("\uD83D\uDFE2 Beginner #4: 페이드 인/아웃 애니메이션") { FadeInOutDemo() },
         ComposableDemo("\uD83D\uDFE2 Beginner #5: 슬라이드 진입 애니메이션") { SlideAnimationDemo() },
+        ComposableDemo("\uD83D\uDFE1 Intermediate #6: Shimmer 로딩 애니메이션") { ShimmerDemo() },
         ComposableDemo("LottieLoadingResult") { LottieLoadingResultScreen() },
         ComposableDemo("Crossfade") { CrossfadeDemo() },
         ActivityDemo("Xmas Animation", XmasActivity::class),
