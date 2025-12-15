@@ -18,6 +18,7 @@ import com.ys.composeplayground.ui.animation.ShimmerDemo
 import com.ys.composeplayground.ui.animation.SlideAnimationDemo
 import com.ys.composeplayground.ui.animation.SpringBounceDemo
 import com.ys.composeplayground.ui.animation.StaggeredListDemo
+import com.ys.composeplayground.ui.animation.SwipeToDismissDemo
 import com.ys.composeplayground.ui.animation.xmas.XmasActivity
 import com.ys.composeplayground.ui.canvas.DynamicStampScreen
 import com.ys.composeplayground.ui.canvas.MovingCircleMenuCanvas
@@ -88,6 +89,7 @@ val Animation = DemoCategory(
         ComposableDemo("\uD83D\uDFE1 Intermediate #6: Shimmer 로딩 애니메이션") { ShimmerDemo() },
         ComposableDemo("\uD83D\uDFE1 Intermediate #7: Spring 바운스 애니메이션") { SpringBounceDemo() },
         ComposableDemo("\uD83D\uDFE1 Intermediate #8: Staggered 리스트 애니메이션") { StaggeredListDemo() },
+        ComposableDemo("\uD83D\uDFE1 Intermediate #9: Swipe to Dismiss 애니메이션") { SwipeToDismissDemo() },
         ComposableDemo("LottieLoadingResult") { LottieLoadingResultScreen() },
         ComposableDemo("Crossfade") { CrossfadeDemo() },
         ActivityDemo("Xmas Animation", XmasActivity::class),
