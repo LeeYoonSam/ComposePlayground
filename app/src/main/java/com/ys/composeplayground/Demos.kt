@@ -12,6 +12,7 @@ import com.ys.composeplayground.ui.animation.ColorTransitionDemo
 import com.ys.composeplayground.ui.animation.CrossfadeDemo
 import com.ys.composeplayground.ui.animation.ExpandableContentDemo
 import com.ys.composeplayground.ui.animation.FadeInOutDemo
+import com.ys.composeplayground.ui.animation.FlipCardDemo
 import com.ys.composeplayground.ui.animation.LottieLoadingResultScreen
 import com.ys.composeplayground.ui.animation.PressScaleDemo
 import com.ys.composeplayground.ui.animation.ShimmerDemo
@@ -90,6 +91,7 @@ val Animation = DemoCategory(
         ComposableDemo("\uD83D\uDFE1 Intermediate #7: Spring 바운스 애니메이션") { SpringBounceDemo() },
         ComposableDemo("\uD83D\uDFE1 Intermediate #8: Staggered 리스트 애니메이션") { StaggeredListDemo() },
         ComposableDemo("\uD83D\uDFE1 Intermediate #9: Swipe to Dismiss 애니메이션") { SwipeToDismissDemo() },
+        ComposableDemo("\uD83D\uDFE1 Intermediate #10: 3D 카드 플립 애니메이션") { FlipCardDemo() },
         ComposableDemo("LottieLoadingResult") { LottieLoadingResultScreen() },
         ComposableDemo("Crossfade") { CrossfadeDemo() },
         ActivityDemo("Xmas Animation", XmasActivity::class),
