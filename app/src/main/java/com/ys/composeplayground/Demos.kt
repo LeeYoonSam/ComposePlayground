@@ -10,6 +10,7 @@ import com.ys.composeplayground.ui.activity.lazycolumn.sectionheader.SectionHead
 import com.ys.composeplayground.ui.album.AlbumActivity
 import com.ys.composeplayground.ui.animation.ColorTransitionDemo
 import com.ys.composeplayground.ui.animation.CrossfadeDemo
+import com.ys.composeplayground.ui.animation.ElasticDragDemo
 import com.ys.composeplayground.ui.animation.ExpandableContentDemo
 import com.ys.composeplayground.ui.animation.FadeInOutDemo
 import com.ys.composeplayground.ui.animation.FlipCardDemo
@@ -92,6 +93,7 @@ val Animation = DemoCategory(
         ComposableDemo("\uD83D\uDFE1 Intermediate #8: Staggered 리스트 애니메이션") { StaggeredListDemo() },
         ComposableDemo("\uD83D\uDFE1 Intermediate #9: Swipe to Dismiss 애니메이션") { SwipeToDismissDemo() },
         ComposableDemo("\uD83D\uDFE1 Intermediate #10: 3D 카드 플립 애니메이션") { FlipCardDemo() },
+        ComposableDemo("\uD83D\uDFE0 Advanced #11: Elastic Drag (탄성 드래그) 애니메이션") { ElasticDragDemo() },
         ComposableDemo("LottieLoadingResult") { LottieLoadingResultScreen() },
         ComposableDemo("Crossfade") { CrossfadeDemo() },
         ActivityDemo("Xmas Animation", XmasActivity::class),
