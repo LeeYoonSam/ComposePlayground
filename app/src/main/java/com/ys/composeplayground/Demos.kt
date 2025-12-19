@@ -8,6 +8,7 @@ import com.ys.composeplayground.core.model.data.DarkThemeConfig
 import com.ys.composeplayground.core.model.data.ThemeBrand
 import com.ys.composeplayground.ui.activity.lazycolumn.sectionheader.SectionHeaderLazyColumnActivity
 import com.ys.composeplayground.ui.album.AlbumActivity
+import com.ys.composeplayground.ui.animation.ChainedSpringsDemo
 import com.ys.composeplayground.ui.animation.ColorTransitionDemo
 import com.ys.composeplayground.ui.animation.CrossfadeDemo
 import com.ys.composeplayground.ui.animation.ElasticDragDemo
@@ -96,6 +97,7 @@ val Animation = DemoCategory(
         ComposableDemo("\uD83D\uDFE1 Intermediate #10: 3D 카드 플립 애니메이션") { FlipCardDemo() },
         ComposableDemo("\uD83D\uDFE0 Advanced #11: Elastic Drag (탄성 드래그) 애니메이션") { ElasticDragDemo() },
         ComposableDemo("\uD83D\uDFE0 Advanced #12: Fling with Decay (관성 스크롤) 애니메이션") { FlingDecayDemo() },
+        ComposableDemo("\uD83D\uDFE0 Advanced #13: Chained Springs (연결된 스프링)") { ChainedSpringsDemo() },
         ComposableDemo("LottieLoadingResult") { LottieLoadingResultScreen() },
         ComposableDemo("Crossfade") { CrossfadeDemo() },
         ActivityDemo("Xmas Animation", XmasActivity::class),
