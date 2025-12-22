@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material.ContentAlpha
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabPosition
@@ -48,7 +47,7 @@ fun PhotosTab(groups: List<String>, selectedGroup: String, onSelected: (String) 
     ) {
         groups.forEachIndexed { index, group ->
             val color = animateColorAsState(
-                targetValue = if (selectedGroup == group) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface.copy(alpha = ContentAlpha.disabled),
+                targetValue = if (selectedGroup == group) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
                 label = ""
             )
             Tab(

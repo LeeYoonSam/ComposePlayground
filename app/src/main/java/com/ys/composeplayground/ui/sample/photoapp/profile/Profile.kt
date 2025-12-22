@@ -9,10 +9,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.ContentAlpha
-import androidx.compose.material.LocalContentColor
-import androidx.compose.material.Surface
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -88,7 +87,7 @@ private fun TagList(tags: List<String>, modifier: Modifier = Modifier) {
                 modifier = Modifier
                     .border(
                         width = 1.dp,
-                        color = LocalContentColor.current.copy(alpha = ContentAlpha.disabled),
+                        color = LocalContentColor.current.copy(alpha = 0.5f),
                         shape = CircleShape
                     )
                     .padding(padding)

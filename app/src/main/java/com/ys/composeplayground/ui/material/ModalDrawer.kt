@@ -1,9 +1,13 @@
 package com.ys.composeplayground.ui.material
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.DrawerValue
+import androidx.compose.material3.ModalDrawerSheet
+import androidx.compose.material3.ModalNavigationDrawer
+import androidx.compose.material3.Text
+import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.tooling.preview.Preview
 import kotlinx.coroutines.launch
@@ -20,17 +24,19 @@ fun ModalDrawerDemo() {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
-    ModalDrawer(
+    ModalNavigationDrawer(
         drawerState = drawerState,
         drawerContent = {
-            Column {
-                Text("Text in Drawer")
-                Button(onClick = {
-                    scope.launch {
-                        drawerState.close()
+            ModalDrawerSheet { // material3
+                Column {
+                    Text("Text in Drawer")
+                    Button(onClick = {
+                        scope.launch {
+                            drawerState.close()
+                        }
+                    }) {
+                        Text("Close Drawer")
                     }
-                }) {
-                    Text("Close Drawer")
                 }
             }
         },

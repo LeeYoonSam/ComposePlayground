@@ -5,9 +5,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.selection.selectable
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.RadioButton
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.RadioButton
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -45,7 +45,7 @@ fun RadioButtonDemo() {
                 )
                 Text(
                     text = text,
-                    style = MaterialTheme.typography.body1.merge(),
+                    style = MaterialTheme.typography.bodyLarge.merge(),
                     modifier = Modifier.padding(start = 16.dp)
                 )
             }

@@ -6,57 +6,63 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.Button
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.Icon
-import androidx.compose.material.ListItem
-import androidx.compose.material.ModalBottomSheetLayout
-import androidx.compose.material.ModalBottomSheetValue
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.rememberModalBottomSheetState
+import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.ListItem
+import androidx.compose.material3.ModalBottomSheet
+import androidx.compose.material3.Text
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import kotlinx.coroutines.launch
 
 @Composable
-@OptIn(ExperimentalMaterialApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 fun ModalBottomSheetDemo() {
-    val state = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
-    val scope = rememberCoroutineScope()
+    var openBottomSheet by rememberSaveable { mutableStateOf(false) }
+    val skipPartiallyExpanded by rememberSaveable { mutableStateOf(false) }
+    val bottomSheetState = rememberModalBottomSheetState(
+        skipPartiallyExpanded = skipPartiallyExpanded
+    )
 
-    ModalBottomSheetLayout(
-        sheetState = state,
-        sheetContent = {
-            LazyColumn {
-                items(50) {
-                    ListItem(
-                        text = { Text("Item $it") },
-                        icon = {
-                            Icon(
-                                imageVector = Icons.Default.Favorite,
-                                contentDescription = "Localized description"
-                            )
-                        }
-                    )
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        if (openBottomSheet) {
+            ModalBottomSheet(
+                onDismissRequest = { openBottomSheet = false },
+                sheetState = bottomSheetState
+            ) {
+                LazyColumn {
+                    items(50) {
+                        ListItem(
+                            headlineContent = { Text("Item $it") },
+                            leadingContent = {
+                                Icon(
+                                    imageVector = Icons.Default.Favorite,
+                                    contentDescription = "Localized description"
+                                )
+                            }
+                        )
+                    }
                 }
             }
-        }
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
+        } else {
             Text("Rest of the UI")
             Spacer(modifier = Modifier.height(20.dp))
-            Button(onClick = { scope.launch { state.show() } }) {
+            Button(onClick = { openBottomSheet = !openBottomSheet }) {
                 Text("Click to show sheet")
             }
         }

@@ -6,10 +6,10 @@ import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyListState
-import androidx.compose.material.FloatingActionButton
-import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
@@ -18,7 +18,6 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import kotlinx.coroutines.flow.collect
 
 @Composable
 fun FeedFab(
@@ -35,7 +34,7 @@ fun FeedFab(
         FloatingActionButton(
             onClick = { Toast.makeText(context, "Not implemented", Toast.LENGTH_SHORT).show() },
             modifier = Modifier.padding(8.dp),
-            backgroundColor = MaterialTheme.colorScheme.primary
+            containerColor = MaterialTheme.colorScheme.primary
         ) {
             Icon(imageVector = Icons.Default.Add, contentDescription = "Add")
         }
