@@ -780,35 +780,27 @@ fun OffsetGuide() {
             .background(Color.White)
             .padding(16.dp)
     ) {
-        Text(
-            "📚 Offset 계산 가이드",
-            fontWeight = FontWeight.Bold,
-            fontSize = 14.sp
-        )
-        Spacer(modifier = Modifier.height(8.dp))
-        Text(
-            """
-            initialOffsetX/Y 람다 파라미터:
-            • it = 요소의 전체 너비/높이
-            
-            수평 슬라이드:
-            • { -it } = 왼쪽 밖에서 시작
-            • { it } = 오른쪽 밖에서 시작
-            • { -it / 2 } = 왼쪽 절반에서 시작
-            
-            수직 슬라이드:
-            • { -it } = 위쪽 밖에서 시작
-            • { it } = 아래쪽 밖에서 시작
-            
-            💡 Fade와 조합하면 더 부드러움:
-            slideIn() + fadeIn()
-            
-            💡 Spring으로 바운스 효과:
-            animationSpec = spring(DampingRatioMediumBouncy)
+        FeatureSection(
+            features = """
+                initialOffsetX/Y 람다 파라미터:
+                • it = 요소의 전체 너비/높이
+                
+                수평 슬라이드:
+                • { -it } = 왼쪽 밖에서 시작
+                • { it } = 오른쪽 밖에서 시작
+                • { -it / 2 } = 왼쪽 절반에서 시작
+                
+                수직 슬라이드:
+                • { -it } = 위쪽 밖에서 시작
+                • { it } = 아래쪽 밖에서 시작
+                
+                💡 Fade와 조합하면 더 부드러움:
+                slideIn() + fadeIn()
+                
+                💡 Spring으로 바운스 효과:
+                animationSpec = spring(DampingRatioMediumBouncy)
             """.trimIndent(),
-            fontSize = 12.sp,
-            color = Color.Gray,
-            lineHeight = 18.sp
+            type = FeatureTextType.TIP
         )
     }
 }

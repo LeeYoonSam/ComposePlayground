@@ -819,45 +819,45 @@ fun FlipGuide() {
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White)
     ) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Text(
-                "📚 3D 카드 플립 가이드",
-                fontWeight = FontWeight.Bold,
-                fontSize = 14.sp
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            TitleSection("📚 3D 카드 플립 가이드")
+
+            CodeSection(
+                title = "핵심 코드:",
+                code = """
+                    Modifier.graphicsLayer {
+                        rotationY = rotation    // Y축 회전
+                        rotationX = rotation    // X축 회전
+                        cameraDistance = 12f * density
+                    }
+                """.trimIndent()
             )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                """
-                핵심 코드:
-```
-                Modifier.graphicsLayer {
-                    rotationY = rotation    // Y축 회전
-                    rotationX = rotation    // X축 회전
-                    cameraDistance = 12f * density
-                }
-```
-                
-                앞/뒤 판정:
-```
-                if (rotation <= 90f) {
-                    FrontCard()
-                } else {
-                    // 뒷면은 180도 보정!
-                    BackCard(
-                        Modifier.graphicsLayer { rotationY = 180f }
-                    )
-                }
-```
-                
-                💡 팁:
-                • cameraDistance 낮음 = 원근감 강함
-                • cameraDistance 높음 = 평면적
-                • spring으로 바운스 효과
-                • 뒷면은 반드시 180도 반전 보정
+
+            CodeSection(
+                title = "앞/뒤 판정:",
+                code = """
+                    if (rotation <= 90f) {
+                        FrontCard()
+                    } else {
+                        // 뒷면은 180도 보정!
+                        BackCard(
+                            Modifier.graphicsLayer { rotationY = 180f }
+                        )
+                    }
+                """.trimIndent()
+            )
+
+            FeatureSection(
+                features = """
+                    • cameraDistance 낮음 = 원근감 강함
+                    • cameraDistance 높음 = 평면적
+                    • spring으로 바운스 효과
+                    • 뒷면은 반드시 180도 반전 보정
                 """.trimIndent(),
-                fontSize = 12.sp,
-                color = Color.Gray,
-                lineHeight = 18.sp
+                type = FeatureTextType.TIP
             )
         }
     }

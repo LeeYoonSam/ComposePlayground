@@ -749,42 +749,46 @@ fun ElasticGuide() {
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White)
     ) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Text(
-                "📚 Elastic Drag 가이드",
-                fontWeight = FontWeight.Bold,
-                fontSize = 14.sp
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            TitleSection("📚 Elastic Drag 가이드")
+            CodeSection(
+                title = "저항(Resistance) 공식:",
+                code = """
+                    resistance = 1f / (1f + abs(offset) * factor)
+                    newOffset = offset + dragAmount * resistance
+                """.trimIndent()
             )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                """
-                저항(Resistance) 공식:
-```
-                resistance = 1f / (1f + abs(offset) * factor)
-                newOffset = offset + dragAmount * resistance
-```
-                
-                factor 값:
-                • 0.003f = 약한 저항 (멀리 드래그 가능)
-                • 0.008f = 중간 저항
-                • 0.015f = 강한 저항 (금방 느려짐)
-                
-                복귀 애니메이션:
-```
-                spring(
-                    dampingRatio = HighBouncy,  // 많이 튕김
-                    stiffness = Low             // 느리게
-                )
-```
-                
-                💡 팁:
-                • 2D는 sqrt(x² + y²)로 거리 계산
-                • Pull-to-Refresh는 threshold 설정
-                • coerceAtLeast(0f)로 방향 제한
+
+            FeatureSection(
+                customTitle = "factor 값:",
+                features = """
+                    factor 값:
+                    • 0.003f = 약한 저항 (멀리 드래그 가능)
+                    • 0.008f = 중간 저항
+                    • 0.015f = 강한 저항 (금방 느려짐)
+                """.trimIndent()
+            )
+
+            CodeSection(
+                title = "복귀 애니메이션:",
+                code = """
+                    spring(
+                        dampingRatio = HighBouncy,  // 많이 튕김
+                        stiffness = Low             // 느리게
+                    )
+                """.trimIndent()
+            )
+
+            FeatureSection(
+                features = """
+                    • 2D는 sqrt(x² + y²)로 거리 계산
+                    • Pull-to-Refresh는 threshold 설정
+                    • coerceAtLeast(0f)로 방향 제한
                 """.trimIndent(),
-                fontSize = 12.sp,
-                color = Color.Gray,
-                lineHeight = 18.sp
+                type = FeatureTextType.TIP
             )
         }
     }

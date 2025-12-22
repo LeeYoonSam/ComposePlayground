@@ -823,48 +823,48 @@ fun SwipeGuide() {
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White)
     ) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Text(
-                "📚 Swipe to Dismiss 구현 가이드",
-                fontWeight = FontWeight.Bold,
-                fontSize = 14.sp
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            TitleSection("📚 Swipe to Dismiss 구현 가이드")
+
+            CodeSection(
+                title = "방법 1: Material3 SwipeToDismissBox",
+                code = """
+                    SwipeToDismissBox(
+                        state = rememberSwipeToDismissBoxState(),
+                        backgroundContent = { Background() }
+                    ) { Content() }    
+                """.trimIndent()
             )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                """
-                방법 1: Material3 SwipeToDismissBox
-```
-                SwipeToDismissBox(
-                    state = rememberSwipeToDismissBoxState(),
-                    backgroundContent = { Background() }
-                ) { Content() }
-```
+
+            CodeSection(
+                title = "방법 2: 커스텀 구현",
+                code = """
+                    val offsetX = remember { Animatable(0f) }
                 
-                방법 2: 커스텀 구현
-```
-                val offsetX = remember { Animatable(0f) }
-                
-                Modifier
-                    .offset { IntOffset(offsetX.value, 0) }
-                    .pointerInput(Unit) {
-                        detectHorizontalDragGestures(
-                            onDragEnd = { /* 판정 */ },
-                            onHorizontalDrag = { _, drag ->
-                                offsetX.snapTo(offsetX.value + drag)
-                            }
-                        )
-                    }
-```
-                
-                💡 팁:
-                • threshold: 보통 40% 정도
-                • spring()으로 자연스러운 복귀
-                • 배경 아이콘 scale 애니메이션
-                • coerceIn()으로 스와이프 방향 제한
+                    Modifier
+                        .offset { IntOffset(offsetX.value, 0) }
+                        .pointerInput(Unit) {
+                            detectHorizontalDragGestures(
+                                onDragEnd = { /* 판정 */ },
+                                onHorizontalDrag = { _, drag ->
+                                    offsetX.snapTo(offsetX.value + drag)
+                                }
+                            )
+                        }    
+                """.trimIndent()
+            )
+
+            FeatureSection(
+                features = """
+                    • threshold: 보통 40% 정도
+                    • spring()으로 자연스러운 복귀
+                    • 배경 아이콘 scale 애니메이션
+                    • coerceIn()으로 스와이프 방향 제한
                 """.trimIndent(),
-                fontSize = 12.sp,
-                color = Color.Gray,
-                lineHeight = 18.sp
+                type = FeatureTextType.TIP
             )
         }
     }

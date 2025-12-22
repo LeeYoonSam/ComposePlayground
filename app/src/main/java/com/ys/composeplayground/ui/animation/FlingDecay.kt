@@ -918,51 +918,55 @@ fun FlingGuide() {
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White)
     ) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Text(
-                "📚 Fling with Decay 가이드",
-                fontWeight = FontWeight.Bold,
-                fontSize = 14.sp
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            TitleSection("📚 Fling with Decay 가이드")
+
+            CodeSection(
+                title = """
+                    Decay 종류:
+
+                    1. splineBasedDecay
+                       - Android 기본 감속 곡선
+                       - 자연스러운 스크롤 느낌    
+                """.trimIndent(),
+                code = "val decay = splineBasedDecay<Float>(density)"
             )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                """
-                Decay 종류:
-                
-                1. splineBasedDecay
-                   - Android 기본 감속 곡선
-                   - 자연스러운 스크롤 느낌
-```
-                   val decay = splineBasedDecay<Float>(density)
-```
-                
-                2. exponentialDecay
-                   - friction 조절 가능
-```
-                   exponentialDecay<Float>(
+
+            CodeSection(
+                title = """
+                    2. exponentialDecay
+                        - friction 조절 가능  
+                """.trimIndent(),
+                code = """
+                    exponentialDecay<Float>(
                        frictionMultiplier = 1f,  // 높을수록 빨리 멈춤
                        absVelocityThreshold = 0.1f
                    )
-```
+                """.trimIndent()
+            )
+
+            CodeSection(
+                title = "사용법:",
+                code = """
+                    val velocityTracker = VelocityTracker()
                 
-                사용법:
-```
-                val velocityTracker = VelocityTracker()
-                
-                onDragEnd = {
-                    val velocity = velocityTracker.calculateVelocity()
-                    offset.animateDecay(velocity.x, decay)
-                }
-```
-                
-                💡 팁:
-                • updateBounds()로 범위 제한
-                • 페이지 스냅은 velocity로 방향 판단
-                • 2D는 X, Y 각각 animateDecay
+                    onDragEnd = {
+                        val velocity = velocityTracker.calculateVelocity()
+                        offset.animateDecay(velocity.x, decay)
+                    }
+                """.trimIndent()
+            )
+
+            FeatureSection(
+                features = """
+                    • updateBounds()로 범위 제한
+                    • 페이지 스냅은 velocity로 방향 판단
+                    • 2D는 X, Y 각각 animateDecay
                 """.trimIndent(),
-                fontSize = 12.sp,
-                color = Color.Gray,
-                lineHeight = 18.sp
+                type = FeatureTextType.TIP
             )
         }
     }

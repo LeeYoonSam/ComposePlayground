@@ -685,19 +685,15 @@ private fun ChainedSpringsGuide() {
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White)
     ) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Text(
-                text = "📚 Chained Springs 가이드",
-                fontWeight = FontWeight.Bold,
-                fontSize = 14.sp
-            )
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            TitleSection("📚 Chained Springs 가이드")
 
-            Spacer(modifier = Modifier.height(8.dp))
-
-            Text(
-                text = """
-                    핵심 패턴:
-```kotlin
+            CodeSection(
+                title = "",
+                code = """
                     // 앞 요소 위치 관찰
                     LaunchedEffect(Unit) {
                         snapshotFlow { previousPosition }
@@ -708,21 +704,25 @@ private fun ChainedSpringsGuide() {
                                 )
                             }
                     }
-```
+                """.trimIndent()
+            )
 
+            FeatureSection(
+                features = """
                     파라미터 효과:
                     • stiffness ↓ = 더 느리게 따라감
                     • dampingRatio ↓ = 더 많이 튕김
                     • 요소 수 ↑ = 긴 꼬리 효과
+                """.trimIndent()
+            )
 
-                    💡 팁:
+            FeatureSection(
+                features = """
                     • 뒤에서부터 그려야 리더가 위에 보임
                     • coerceIn으로 화면 범위 제한
                     • NoBouncy면 부드러운 따라가기
                 """.trimIndent(),
-                fontSize = 12.sp,
-                color = Color.Gray,
-                lineHeight = 18.sp
+                type = FeatureTextType.TIP
             )
         }
     }

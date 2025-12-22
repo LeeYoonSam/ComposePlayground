@@ -468,32 +468,23 @@ fun ModifierOrderGuide() {
             .background(Color.White)
             .padding(16.dp)
     ) {
-        Text(
-            "⚠️ Modifier 순서 주의!",
-            fontWeight = FontWeight.Bold,
-            fontSize = 14.sp,
-            color = Color(0xFFE65100)
-        )
-        Spacer(modifier = Modifier.height(8.dp))
-        Text(
-            """
-            ✅ 올바른 순서:
-            Modifier
-                .animateContentSize()  // 먼저!
-                .padding(16.dp)
-                .background(Color.White)
-            
-            ❌ 잘못된 순서:
-            Modifier
-                .padding(16.dp)
-                .animateContentSize()  // padding이 애니메이션 안됨!
-            
-            💡 Tip: animateContentSize는 이후에 오는 
-            Modifier들의 크기 변화를 애니메이션합니다.
+        FeatureSection(
+            features = """
+                ✅ 올바른 순서:
+                Modifier
+                    .animateContentSize()  // 먼저!
+                    .padding(16.dp)
+                    .background(Color.White)
+                
+                ❌ 잘못된 순서:
+                Modifier
+                    .padding(16.dp)
+                    .animateContentSize()  // padding이 애니메이션 안됨!
+                
+                💡 Tip: animateContentSize는 이후에 오는 
+                Modifier들의 크기 변화를 애니메이션합니다.
             """.trimIndent(),
-            fontSize = 12.sp,
-            color = Color.Gray,
-            lineHeight = 18.sp
+            type = FeatureTextType.CAUTION
         )
     }
 }

@@ -326,29 +326,21 @@ fun SpringParameterGuide() {
             .background(Color.White)
             .padding(16.dp)
     ) {
-        Text(
-            text = "\uD83D\uDCDA Spring 파라미터 가이드",
-            fontWeight = FontWeight.Bold,
-            fontSize = 14.sp
-        )
-        Spacer(modifier = Modifier.height(8.dp))
-        Text(
-            """
-            dampingRatio (바운스 정도):
-            • HighBouncy (0.2): 많이 튕김
-            • MediumBouncy (0.5): 적당히 튕김
-            • LowBouncy (0.75): 조금 튕김
-            • NoBouncy (1.0): 안 튕김
-            
-            stiffness (속도):
-            • High (10000): 매우 빠름
-            • Medium (1500): 보통
-            • Low (200): 느림
-            • VeryLow (50): 매우 느림
+        FeatureSection(
+            features = """
+                dampingRatio (바운스 정도):
+                • HighBouncy (0.2): 많이 튕김
+                • MediumBouncy (0.5): 적당히 튕김
+                • LowBouncy (0.75): 조금 튕김
+                • NoBouncy (1.0): 안 튕김
+                
+                stiffness (속도):
+                • High (10000): 매우 빠름
+                • Medium (1500): 보통
+                • Low (200): 느림
+                • VeryLow (50): 매우 느림
             """.trimIndent(),
-            fontSize = 12.sp,
-            color = Color.Gray,
-            lineHeight = 18.sp
+            type = FeatureTextType.TIP
         )
     }
 }

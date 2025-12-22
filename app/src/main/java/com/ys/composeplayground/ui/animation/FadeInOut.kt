@@ -616,32 +616,24 @@ fun TransitionGuide() {
             .background(Color.White)
             .padding(16.dp)
     ) {
-        Text(
-            "📚 EnterTransition / ExitTransition 종류",
-            fontWeight = FontWeight.Bold,
-            fontSize = 14.sp
-        )
-        Spacer(modifier = Modifier.height(8.dp))
-        Text(
-            """
-            EnterTransition:
-            • fadeIn() - 투명 → 불투명
-            • slideIn() - 지정 위치에서 슬라이드
-            • slideInHorizontally() - 좌/우에서
-            • slideInVertically() - 위/아래에서
-            • scaleIn() - 작은 크기에서 확대
-            • expandIn() - 크기 확장
-            • expandHorizontally() - 가로 확장
-            • expandVertically() - 세로 확장
-            
-            ExitTransition:
-            • fadeOut(), slideOut(), scaleOut()...
-            
-            💡 조합: fadeIn() + scaleIn() + slideIn()
+        FeatureSection(
+            customTitle = "📚 EnterTransition / ExitTransition 종류",
+            features = """
+                EnterTransition:
+                • fadeIn() - 투명 → 불투명
+                • slideIn() - 지정 위치에서 슬라이드
+                • slideInHorizontally() - 좌/우에서
+                • slideInVertically() - 위/아래에서
+                • scaleIn() - 작은 크기에서 확대
+                • expandIn() - 크기 확장
+                • expandHorizontally() - 가로 확장
+                • expandVertically() - 세로 확장
+                
+                ExitTransition:
+                • fadeOut(), slideOut(), scaleOut()...
+                
+                💡 조합: fadeIn() + scaleIn() + slideIn()
             """.trimIndent(),
-            fontSize = 12.sp,
-            color = Color.Gray,
-            lineHeight = 18.sp
         )
     }
 }

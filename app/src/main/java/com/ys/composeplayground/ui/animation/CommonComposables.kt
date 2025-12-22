@@ -65,18 +65,25 @@ fun DemoSectionWithBox(
     }
 }
 
+
 @Composable
-fun GuideSection(
+fun TitleSection(title: String) {
+    Text(
+        text = title,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 14.sp,
+        color = Color(0xFF333333)
+    )
+}
+
+
+@Composable
+fun CodeSection(
     title: String,
     code: String
 ) {
     Column {
-        Text(
-            text = title,
-            fontWeight = FontWeight.SemiBold,
-            fontSize = 13.sp,
-            color = Color(0xFF333333)
-        )
+        TitleSection(title)
 
         Spacer(modifier = Modifier.height(6.dp))
 
@@ -95,5 +102,49 @@ fun GuideSection(
                 lineHeight = 16.sp
             )
         }
+    }
+}
+
+enum class FeatureTextType {
+    TIP,
+    CAUTION,
+    NONE
+}
+
+@Composable
+fun FeatureSection(
+    features: String,
+    customTitle: String? = null,
+    type: FeatureTextType = FeatureTextType.NONE
+) {
+    Column(
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        val title = when (type) {
+            FeatureTextType.TIP -> "💡 팁"
+            FeatureTextType.CAUTION -> "⚠️ 주의사항"
+            else -> customTitle
+        }
+
+        title?.let {
+            val titleColor = when (type) {
+                FeatureTextType.TIP -> Color(0xFF1976D2)
+                FeatureTextType.CAUTION -> Color(0xFFE65100)
+                else -> Color(0xFF333333)
+            }
+            Text(
+                text = it,
+                fontWeight = FontWeight.SemiBold,
+                fontSize = 14.sp,
+                color = titleColor
+            )
+        }
+
+        Text(
+            text = features,
+            fontSize = 12.sp,
+            color = Color.Gray,
+            lineHeight = 18.sp
+        )
     }
 }

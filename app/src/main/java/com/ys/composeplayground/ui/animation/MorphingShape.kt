@@ -800,79 +800,53 @@ private fun MorphingShapeGuide() {
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White)
     ) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Text(
-                text = "📚 Morphing Shape 가이드",
-                fontWeight = FontWeight.Bold,
-                fontSize = 14.sp
-            )
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            TitleSection("📚 Morphing Shape 가이드")
 
-            Spacer(modifier = Modifier.height(12.dp))
 
-            GuideSection(
+            CodeSection(
                 title = "방법 1: Corner Radius 변경",
                 code = """
-val corner by animateFloatAsState(
-    targetValue = if (isCircle) 50f else 0f
-)
-// 범위 제한 필수!
-val safe = corner.coerceIn(0f, 50f).toInt()
-Modifier.clip(RoundedCornerShape(safe))
+                    val corner by animateFloatAsState(
+                        targetValue = if (isCircle) 50f else 0f
+                    )
+                    // 범위 제한 필수!
+                    val safe = corner.coerceIn(0f, 50f).toInt()
+                    Modifier.clip(RoundedCornerShape(safe))
                 """.trimIndent()
             )
 
-            Spacer(modifier = Modifier.height(12.dp))
-
-            GuideSection(
+            CodeSection(
                 title = "방법 2: Path 정점 보간",
                 code = """
-val progress by animateFloatAsState(...)
-// 범위 제한!
-val safe = progress.coerceIn(0f, 1f)
-val path = createMorphPath(safe)
-drawPath(path, color)
+                    val progress by animateFloatAsState(...)
+                    // 범위 제한!
+                    val safe = progress.coerceIn(0f, 1f)
+                    val path = createMorphPath(safe)
+                    drawPath(path, color)
                 """.trimIndent()
             )
 
-            Spacer(modifier = Modifier.height(12.dp))
-
-            Text(
-                text = "⚠️ 주의사항",
-                fontWeight = FontWeight.SemiBold,
-                fontSize = 13.sp,
-                color = Color(0xFFE65100)
+            FeatureSection(
+                type = FeatureTextType.CAUTION,
+                features = """
+                    • spring 바운스로 범위 초과 가능 → coerceIn() 필수
+                    • RoundedCornerShape: 0~100% 범위
+                    • Path points: 최소 3개 필요
+                """.trimIndent()
             )
 
-            Spacer(modifier = Modifier.height(4.dp))
-
-            Text(
-                text = "• spring 바운스로 범위 초과 가능 → coerceIn() 필수\n" +
-                        "• RoundedCornerShape: 0~100% 범위\n" +
-                        "• Path points: 최소 3개 필요",
-                fontSize = 12.sp,
-                color = Color.Gray,
-                lineHeight = 18.sp
-            )
-
-            Spacer(modifier = Modifier.height(12.dp))
-
-            Text(
-                text = "💡 팁",
-                fontWeight = FontWeight.SemiBold,
-                fontSize = 13.sp,
-                color = Color(0xFF1976D2)
-            )
-
-            Spacer(modifier = Modifier.height(4.dp))
-
-            Text(
-                text = "• 50% corner = 정원\n" +
-                        "• graphicsLayer로 회전 추가\n" +
-                        "• spring으로 탄성 효과\n" +
-                        "• Path는 같은 수의 정점 필요",
-                fontSize = 12.sp,
-                color = Color.Gray,
-                lineHeight = 18.sp
+            FeatureSection(
+                type = FeatureTextType.TIP,
+                features = """
+                    • 50% corner = 정원
+                    • graphicsLayer로 회전 추가
+                    • spring으로 탄성 효과
+                    • Path는 같은 수의 정점 필요
+                """.trimIndent()
             )
         }
     }

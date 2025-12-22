@@ -45,7 +45,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ys.composeplayground.ModifierDemos
 
 
 /**
@@ -652,42 +651,38 @@ fun ShimmerGuide() {
             .fillMaxWidth()
             .clip(RoundedCornerShape(12.dp))
             .background(Color.White)
-            .padding(16.dp)
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        Text(
-            "📚 Shimmer 구현 가이드",
-            fontWeight = FontWeight.Bold,
-            fontSize = 14.sp
+        FeatureSection(
+            customTitle = "핵심 구성요소:",
+            features = """
+                1. rememberInfiniteTransition
+                   → 무한 반복 애니메이션 생성
+                
+                2. animateFloat + infiniteRepeatable
+                   → 0 → 1000 반복 이동값 생성
+                
+                3. Brush.linearGradient
+                   → 이동하는 그라데이션 생성
+                
+                4. composed { } 
+                   → 재사용 가능한 Modifier
+            """.trimIndent()
         )
-        Spacer(modifier = Modifier.height(8.dp))
-        Text(
-            """
-            핵심 구성요소:
-            
-            1. rememberInfiniteTransition
-               → 무한 반복 애니메이션 생성
-            
-            2. animateFloat + infiniteRepeatable
-               → 0 → 1000 반복 이동값 생성
-            
-            3. Brush.linearGradient
-               → 이동하는 그라데이션 생성
-            
-            4. composed { } 
-               → 재사용 가능한 Modifier
-            
-            💡 커스터마이징 포인트:
-            • colors: 그라데이션 색상
-            • durationMillis: 애니메이션 속도
-            • 대각선 방향: start/end Offset 조절
-            
-            💡 성능 팁:
-            • 스켈레톤 개수 제한 (5-10개)
-            • 복잡한 형태는 단순화
+
+        FeatureSection(
+            features = """
+                💡 커스터마이징 포인트:
+                • colors: 그라데이션 색상
+                • durationMillis: 애니메이션 속도
+                • 대각선 방향: start/end Offset 조절
+                
+                💡 성능 팁:
+                • 스켈레톤 개수 제한 (5-10개)
+                • 복잡한 형태는 단순화
             """.trimIndent(),
-            fontSize = 12.sp,
-            color = Color.Gray,
-            lineHeight = 18.sp
+            type = FeatureTextType.TIP
         )
     }
 }

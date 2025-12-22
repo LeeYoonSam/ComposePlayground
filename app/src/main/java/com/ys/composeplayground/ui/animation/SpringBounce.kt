@@ -737,37 +737,34 @@ fun SpringGuide() {
             .fillMaxWidth()
             .clip(RoundedCornerShape(12.dp))
             .background(Color.White)
-            .padding(16.dp)
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        Text(
-            "📚 Spring 파라미터 가이드",
-            fontWeight = FontWeight.Bold,
-            fontSize = 14.sp
+        FeatureSection(
+            customTitle = "DampingRatio & Stiffness",
+            features = """
+                DampingRatio (감쇠비):
+                • 0.2 (HighBouncy) = 많이 튕김
+                • 0.5 (MediumBouncy) = 중간
+                • 0.75 (LowBouncy) = 조금 튕김
+                • 1.0 (NoBouncy) = 튕김 없음
+                
+                Stiffness (강성):
+                • 10000 (High) = 매우 빠름
+                • 1500 (Medium) = 보통
+                • 400 (MediumLow) = 약간 느림
+                • 200 (Low) = 느림
+                • 50 (VeryLow) = 매우 느림
+            """.trimIndent()
         )
-        Spacer(modifier = Modifier.height(8.dp))
-        Text(
-            """
-            DampingRatio (감쇠비):
-            • 0.2 (HighBouncy) = 많이 튕김
-            • 0.5 (MediumBouncy) = 중간
-            • 0.75 (LowBouncy) = 조금 튕김
-            • 1.0 (NoBouncy) = 튕김 없음
-            
-            Stiffness (강성):
-            • 10000 (High) = 매우 빠름
-            • 1500 (Medium) = 보통
-            • 400 (MediumLow) = 약간 느림
-            • 200 (Low) = 느림
-            • 50 (VeryLow) = 매우 느림
-            
-            💡 조합 팁:
-            • 버튼 press: Low damping + Medium stiffness
-            • 드래그 drop: Medium damping + Low stiffness
-            • 빠른 반응: High stiffness + Any damping
+
+        FeatureSection(
+            features = """
+                • 버튼 press: Low damping + Medium stiffness
+                • 드래그 drop: Medium damping + Low stiffness
+                • 빠른 반응: High stiffness + Any damping
             """.trimIndent(),
-            fontSize = 12.sp,
-            color = Color.Gray,
-            lineHeight = 18.sp
+            type = FeatureTextType.TIP
         )
     }
 }

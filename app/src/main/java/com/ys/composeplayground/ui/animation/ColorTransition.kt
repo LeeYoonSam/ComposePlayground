@@ -468,31 +468,23 @@ fun AnimationSpecGuide() {
             .background(Color.White)
             .padding(16.dp)
     ) {
-        Text(
-            "📚 AnimationSpec 가이드",
-            fontWeight = FontWeight.Bold,
-            fontSize = 14.sp
-        )
-        Spacer(modifier = Modifier.height(8.dp))
-        Text(
-            """
-            tween (시간 기반):
-            • durationMillis: 애니메이션 시간
-            • easing: 속도 곡선
-              - LinearEasing: 일정 속도
-              - FastOutSlowInEasing: 빠르게 시작, 천천히 끝
-              - EaseInOutCubic: 부드러운 시작과 끝
-            
-            spring (물리 기반):
-            • 색상도 탄성있게 전환 가능!
-            • dampingRatio로 바운스 조절
-            
-            snap:
-            • 즉시 변경 (애니메이션 없음)
+        FeatureSection(
+            features = """
+                tween (시간 기반):
+                • durationMillis: 애니메이션 시간
+                • easing: 속도 곡선
+                  - LinearEasing: 일정 속도
+                  - FastOutSlowInEasing: 빠르게 시작, 천천히 끝
+                  - EaseInOutCubic: 부드러운 시작과 끝
+                
+                spring (물리 기반):
+                • 색상도 탄성있게 전환 가능!
+                • dampingRatio로 바운스 조절
+                
+                snap:
+                • 즉시 변경 (애니메이션 없음)
             """.trimIndent(),
-            fontSize = 12.sp,
-            color = Color.Gray,
-            lineHeight = 18.sp
+            type = FeatureTextType.TIP
         )
     }
 }

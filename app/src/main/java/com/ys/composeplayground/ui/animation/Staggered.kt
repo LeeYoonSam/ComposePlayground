@@ -801,42 +801,40 @@ fun StaggerGuide() {
             .fillMaxWidth()
             .clip(RoundedCornerShape(12.dp))
             .background(Color.White)
-            .padding(16.dp)
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        Text(
-            "📚 Stagger 구현 가이드",
-            fontWeight = FontWeight.Bold,
-            fontSize = 14.sp
+        TitleSection("📚 Stagger 구현 가이드")
+
+        CodeSection(
+            title = "방법 1: Animatable + LaunchedEffect",
+            code = """
+                LaunchedEffect(Unit) {
+                    delay(index * staggerDelay)
+                    animatable.animateTo(targetValue)
+                }    
+            """.trimIndent()
         )
-        Spacer(modifier = Modifier.height(8.dp))
-        Text(
-            """
-            방법 1: Animatable + LaunchedEffect
-```
-            LaunchedEffect(Unit) {
-                delay(index * staggerDelay)
-                animatable.animateTo(targetValue)
-            }
-```
-            
-            방법 2: AnimatedVisibility + delayMillis
-```
-            enter = fadeIn(
-                animationSpec = tween(
-                    delayMillis = index * 100
-                )
-            )
-```
-            
-            💡 팁:
-            • staggerDelay: 50~100ms가 적당
-            • 아이템 수가 많으면 delay 줄이기
-            • spring으로 바운스 효과 추가
-            • launch로 병렬 애니메이션
+
+        CodeSection(
+            title = "방법 2: AnimatedVisibility + delayMillis",
+            code = """
+                enter = fadeIn(
+                    animationSpec = tween(
+                        delayMillis = index * 100
+                    )
+                )    
+            """.trimIndent()
+        )
+
+        FeatureSection(
+            features = """
+                • staggerDelay: 50~100ms가 적당
+                • 아이템 수가 많으면 delay 줄이기
+                • spring으로 바운스 효과 추가
+                • launch로 병렬 애니메이션
             """.trimIndent(),
-            fontSize = 12.sp,
-            color = Color.Gray,
-            lineHeight = 18.sp
+            type = FeatureTextType.TIP
         )
     }
 }
