@@ -17,6 +17,7 @@ import com.ys.composeplayground.ui.animation.FadeInOutDemo
 import com.ys.composeplayground.ui.animation.FlingDecayDemo
 import com.ys.composeplayground.ui.animation.FlipCardDemo
 import com.ys.composeplayground.ui.animation.LottieLoadingResultScreen
+import com.ys.composeplayground.ui.animation.MorphingShapeDemo
 import com.ys.composeplayground.ui.animation.PressScaleDemo
 import com.ys.composeplayground.ui.animation.ShimmerDemo
 import com.ys.composeplayground.ui.animation.SlideAnimationDemo
@@ -98,6 +99,7 @@ val Animation = DemoCategory(
         ComposableDemo("\uD83D\uDFE0 Advanced #11: Elastic Drag (탄성 드래그) 애니메이션") { ElasticDragDemo() },
         ComposableDemo("\uD83D\uDFE0 Advanced #12: Fling with Decay (관성 스크롤) 애니메이션") { FlingDecayDemo() },
         ComposableDemo("\uD83D\uDFE0 Advanced #13: Chained Springs (연결된 스프링)") { ChainedSpringsDemo() },
+        ComposableDemo("\uD83D\uDFE0 Advanced #14: Morphing Shape (도형 변환)") { MorphingShapeDemo() },
         ComposableDemo("LottieLoadingResult") { LottieLoadingResultScreen() },
         ComposableDemo("Crossfade") { CrossfadeDemo() },
         ActivityDemo("Xmas Animation", XmasActivity::class),
