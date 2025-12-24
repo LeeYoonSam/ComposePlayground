@@ -19,6 +19,7 @@ import com.ys.composeplayground.ui.animation.FlipCardDemo
 import com.ys.composeplayground.ui.animation.LottieLoadingResultScreen
 import com.ys.composeplayground.ui.animation.MorphingShapeDemo
 import com.ys.composeplayground.ui.animation.ParallaxScrollDemo
+import com.ys.composeplayground.ui.animation.ParticleConfettiDemo
 import com.ys.composeplayground.ui.animation.PressScaleDemo
 import com.ys.composeplayground.ui.animation.ShimmerDemo
 import com.ys.composeplayground.ui.animation.SlideAnimationDemo
@@ -102,6 +103,7 @@ val Animation = DemoCategory(
         ComposableDemo("\uD83D\uDFE0 Advanced #13: Chained Springs (연결된 스프링)") { ChainedSpringsDemo() },
         ComposableDemo("\uD83D\uDFE0 Advanced #14: Morphing Shape (도형 변환)") { MorphingShapeDemo() },
         ComposableDemo("\uD83D\uDFE0 Advanced #15: Parallax Scroll (시차 스크롤)") { ParallaxScrollDemo() },
+        ComposableDemo("\uD83D\uDD34 Expert #16: Particle Confetti (파티클 폭죽)") { ParticleConfettiDemo() },
         ComposableDemo("LottieLoadingResult") { LottieLoadingResultScreen() },
         ComposableDemo("Crossfade") { CrossfadeDemo() },
         ActivityDemo("Xmas Animation", XmasActivity::class),
