@@ -17,6 +17,7 @@ import com.ys.composeplayground.ui.animation.FadeInOutDemo
 import com.ys.composeplayground.ui.animation.FlingDecayDemo
 import com.ys.composeplayground.ui.animation.FlipCardDemo
 import com.ys.composeplayground.ui.animation.LottieLoadingResultScreen
+import com.ys.composeplayground.ui.animation.MorphingBlobDemo
 import com.ys.composeplayground.ui.animation.MorphingShapeDemo
 import com.ys.composeplayground.ui.animation.ParallaxScrollDemo
 import com.ys.composeplayground.ui.animation.ParticleConfettiDemo
@@ -89,23 +90,24 @@ import com.ys.composeplayground.ui.scroll.timer.ScrollTimerComposeActivity
 val Animation = DemoCategory(
     "Animations",
     listOf(
-        ComposableDemo("\uD83D\uDFE2 Beginner #1: 버튼 Press 스케일 애니메이션") { PressScaleDemo() },
-        ComposableDemo("\uD83D\uDFE2 Beginner #2: 색상 전환 애니메이션") { ColorTransitionDemo() },
-        ComposableDemo("\uD83D\uDFE2 Beginner #3: 확장/축소 콘텐츠 애니메이션") { ExpandableContentDemo() },
-        ComposableDemo("\uD83D\uDFE2 Beginner #4: 페이드 인/아웃 애니메이션") { FadeInOutDemo() },
-        ComposableDemo("\uD83D\uDFE2 Beginner #5: 슬라이드 진입 애니메이션") { SlideAnimationDemo() },
-        ComposableDemo("\uD83D\uDFE1 Intermediate #6: Shimmer 로딩 애니메이션") { ShimmerDemo() },
-        ComposableDemo("\uD83D\uDFE1 Intermediate #7: Spring 바운스 애니메이션") { SpringBounceDemo() },
-        ComposableDemo("\uD83D\uDFE1 Intermediate #8: Staggered 리스트 애니메이션") { StaggeredListDemo() },
-        ComposableDemo("\uD83D\uDFE1 Intermediate #9: Swipe to Dismiss 애니메이션") { SwipeToDismissDemo() },
-        ComposableDemo("\uD83D\uDFE1 Intermediate #10: 3D 카드 플립 애니메이션") { FlipCardDemo() },
-        ComposableDemo("\uD83D\uDFE0 Advanced #11: Elastic Drag (탄성 드래그) 애니메이션") { ElasticDragDemo() },
-        ComposableDemo("\uD83D\uDFE0 Advanced #12: Fling with Decay (관성 스크롤) 애니메이션") { FlingDecayDemo() },
-        ComposableDemo("\uD83D\uDFE0 Advanced #13: Chained Springs (연결된 스프링)") { ChainedSpringsDemo() },
-        ComposableDemo("\uD83D\uDFE0 Advanced #14: Morphing Shape (도형 변환)") { MorphingShapeDemo() },
-        ComposableDemo("\uD83D\uDFE0 Advanced #15: Parallax Scroll (시차 스크롤)") { ParallaxScrollDemo() },
-        ComposableDemo("\uD83D\uDD34 Expert #16: Particle Confetti (파티클 폭죽)") { ParticleConfettiDemo() },
+        ComposableDemo("🟢 Beginner #1: 버튼 Press 스케일 애니메이션") { PressScaleDemo() },
+        ComposableDemo("🟢 Beginner #2: 색상 전환 애니메이션") { ColorTransitionDemo() },
+        ComposableDemo("🟢 Beginner #3: 확장/축소 콘텐츠 애니메이션") { ExpandableContentDemo() },
+        ComposableDemo("🟢 Beginner #4: 페이드 인/아웃 애니메이션") { FadeInOutDemo() },
+        ComposableDemo("🟢 Beginner #5: 슬라이드 진입 애니메이션") { SlideAnimationDemo() },
+        ComposableDemo("🟡 Intermediate #6: Shimmer 로딩 애니메이션") { ShimmerDemo() },
+        ComposableDemo("🟡 Intermediate #7: Spring 바운스 애니메이션") { SpringBounceDemo() },
+        ComposableDemo("🟡 Intermediate #8: Staggered 리스트 애니메이션") { StaggeredListDemo() },
+        ComposableDemo("🟡 Intermediate #9: Swipe to Dismiss 애니메이션") { SwipeToDismissDemo() },
+        ComposableDemo("🟡 Intermediate #10: 3D 카드 플립 애니메이션") { FlipCardDemo() },
+        ComposableDemo("🟠 Advanced #11: Elastic Drag (탄성 드래그) 애니메이션") { ElasticDragDemo() },
+        ComposableDemo("🟠 Advanced #12: Fling with Decay (관성 스크롤) 애니메이션") { FlingDecayDemo() },
+        ComposableDemo("🟠 Advanced #13: Chained Springs (연결된 스프링)") { ChainedSpringsDemo() },
+        ComposableDemo("🟠 Advanced #14: Morphing Shape (도형 변환)") { MorphingShapeDemo() },
+        ComposableDemo("🟠 Advanced #15: Parallax Scroll (시차 스크롤)") { ParallaxScrollDemo() },
+        ComposableDemo("🔴 Expert #16: Particle Confetti (파티클 폭죽)") { ParticleConfettiDemo() },
         ComposableDemo("🔴 Expert #17: Snowfall Effect (눈 내리기) 애니메이션") { SnowfallEffectDemo() },
+        ComposableDemo("🔴 Expert #18: Morphing Blob (변형 블롭) 애니메이션") { MorphingBlobDemo() },
         ComposableDemo("LottieLoadingResult") { LottieLoadingResultScreen() },
         ComposableDemo("Crossfade") { CrossfadeDemo() },
         ActivityDemo("Xmas Animation", XmasActivity::class),
