@@ -24,6 +24,7 @@ import com.ys.composeplayground.ui.animation.MorphingShapeDemo
 import com.ys.composeplayground.ui.animation.ParallaxScrollDemo
 import com.ys.composeplayground.ui.animation.ParticleConfettiDemo
 import com.ys.composeplayground.ui.animation.PressScaleDemo
+import com.ys.composeplayground.ui.animation.PullToRefreshCharacterDemo
 import com.ys.composeplayground.ui.animation.ShimmerDemo
 import com.ys.composeplayground.ui.animation.SlideAnimationDemo
 import com.ys.composeplayground.ui.animation.SnowfallEffectDemo
@@ -112,6 +113,7 @@ val Animation = DemoCategory(
         ComposableDemo("🔴 Expert #18: Morphing Blob (변형 블롭) 애니메이션") { MorphingBlobDemo() },
         ComposableDemo("🔴 Expert #19: Liquid Swipe (액체 스와이프)") { LiquidSwipeDemo() },
         ComposableDemo("🔴 Expert #20: Interactive Waveform (인터랙티브 파형)") { InteractiveWaveformDemo() },
+        ComposableDemo("\uD83C\uDFAF Bonus #21: Pull-to-Refresh 캐릭터") { PullToRefreshCharacterDemo() },
         ComposableDemo("LottieLoadingResult") { LottieLoadingResultScreen() },
         ComposableDemo("Crossfade") { CrossfadeDemo() },
         ActivityDemo("Xmas Animation", XmasActivity::class),
