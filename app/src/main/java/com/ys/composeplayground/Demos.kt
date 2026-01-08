@@ -8,6 +8,7 @@ import com.ys.composeplayground.core.model.data.DarkThemeConfig
 import com.ys.composeplayground.core.model.data.ThemeBrand
 import com.ys.composeplayground.ui.activity.lazycolumn.sectionheader.SectionHeaderLazyColumnActivity
 import com.ys.composeplayground.ui.album.AlbumActivity
+import com.ys.composeplayground.ui.animation.BouncyRopeDemo
 import com.ys.composeplayground.ui.animation.ChainedSpringsDemo
 import com.ys.composeplayground.ui.animation.ColorTransitionDemo
 import com.ys.composeplayground.ui.animation.CrossfadeDemo
@@ -114,6 +115,7 @@ val Animation = DemoCategory(
         ComposableDemo("🔴 Expert #19: Liquid Swipe (액체 스와이프)") { LiquidSwipeDemo() },
         ComposableDemo("🔴 Expert #20: Interactive Waveform (인터랙티브 파형)") { InteractiveWaveformDemo() },
         ComposableDemo("\uD83C\uDFAF Bonus #21: Pull-to-Refresh 캐릭터") { PullToRefreshCharacterDemo() },
+        ComposableDemo("\uD83C\uDFAF Bonus #22: Bouncy Rope (출렁이는 줄)") { BouncyRopeDemo() },
         ComposableDemo("LottieLoadingResult") { LottieLoadingResultScreen() },
         ComposableDemo("Crossfade") { CrossfadeDemo() },
         ActivityDemo("Xmas Animation", XmasActivity::class),
