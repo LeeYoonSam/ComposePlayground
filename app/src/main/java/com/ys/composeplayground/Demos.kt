@@ -20,6 +20,7 @@ import com.ys.composeplayground.ui.animation.FlipCardDemo
 import com.ys.composeplayground.ui.animation.InteractiveWaveformDemo
 import com.ys.composeplayground.ui.animation.LiquidSwipeDemo
 import com.ys.composeplayground.ui.animation.LottieLoadingResultScreen
+import com.ys.composeplayground.ui.animation.MagneticSnapDemo
 import com.ys.composeplayground.ui.animation.MorphingBlobDemo
 import com.ys.composeplayground.ui.animation.MorphingShapeDemo
 import com.ys.composeplayground.ui.animation.ParallaxScrollDemo
@@ -116,6 +117,7 @@ val Animation = DemoCategory(
         ComposableDemo("🔴 Expert #20: Interactive Waveform (인터랙티브 파형)") { InteractiveWaveformDemo() },
         ComposableDemo("\uD83C\uDFAF Bonus #21: Pull-to-Refresh 캐릭터") { PullToRefreshCharacterDemo() },
         ComposableDemo("\uD83C\uDFAF Bonus #22: Bouncy Rope (출렁이는 줄)") { BouncyRopeDemo() },
+        ComposableDemo("\uD83C\uDFAF Bonus #23: Magnetic Snap (자석 붙기)") { MagneticSnapDemo() },
         ComposableDemo("LottieLoadingResult") { LottieLoadingResultScreen() },
         ComposableDemo("Crossfade") { CrossfadeDemo() },
         ActivityDemo("Xmas Animation", XmasActivity::class),
