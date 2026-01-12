@@ -9,6 +9,7 @@ import com.ys.composeplayground.core.model.data.ThemeBrand
 import com.ys.composeplayground.ui.activity.lazycolumn.sectionheader.SectionHeaderLazyColumnActivity
 import com.ys.composeplayground.ui.album.AlbumActivity
 import com.ys.composeplayground.ui.animation.BouncyRopeDemo
+import com.ys.composeplayground.ui.animation.BreathingButtonDemo
 import com.ys.composeplayground.ui.animation.ChainedSpringsDemo
 import com.ys.composeplayground.ui.animation.ColorTransitionDemo
 import com.ys.composeplayground.ui.animation.CrossfadeDemo
@@ -118,6 +119,7 @@ val Animation = DemoCategory(
         ComposableDemo("\uD83C\uDFAF Bonus #21: Pull-to-Refresh 캐릭터") { PullToRefreshCharacterDemo() },
         ComposableDemo("\uD83C\uDFAF Bonus #22: Bouncy Rope (출렁이는 줄)") { BouncyRopeDemo() },
         ComposableDemo("\uD83C\uDFAF Bonus #23: Magnetic Snap (자석 붙기)") { MagneticSnapDemo() },
+        ComposableDemo("\uD83C\uDFAF Bonus #24: Breathing Button (숨쉬는 버튼)") { BreathingButtonDemo() },
         ComposableDemo("LottieLoadingResult") { LottieLoadingResultScreen() },
         ComposableDemo("Crossfade") { CrossfadeDemo() },
         ActivityDemo("Xmas Animation", XmasActivity::class),
