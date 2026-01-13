@@ -13,6 +13,7 @@ import com.ys.composeplayground.ui.animation.BreathingButtonDemo
 import com.ys.composeplayground.ui.animation.ChainedSpringsDemo
 import com.ys.composeplayground.ui.animation.ColorTransitionDemo
 import com.ys.composeplayground.ui.animation.CrossfadeDemo
+import com.ys.composeplayground.ui.animation.DominoEffectDemo
 import com.ys.composeplayground.ui.animation.ElasticDragDemo
 import com.ys.composeplayground.ui.animation.ExpandableContentDemo
 import com.ys.composeplayground.ui.animation.FadeInOutDemo
@@ -120,6 +121,7 @@ val Animation = DemoCategory(
         ComposableDemo("\uD83C\uDFAF Bonus #22: Bouncy Rope (출렁이는 줄)") { BouncyRopeDemo() },
         ComposableDemo("\uD83C\uDFAF Bonus #23: Magnetic Snap (자석 붙기)") { MagneticSnapDemo() },
         ComposableDemo("\uD83C\uDFAF Bonus #24: Breathing Button (숨쉬는 버튼)") { BreathingButtonDemo() },
+        ComposableDemo("\uD83C\uDFAF Bonus #25: Domino Effect (도미노 효과)") { DominoEffectDemo() },
         ComposableDemo("LottieLoadingResult") { LottieLoadingResultScreen() },
         ComposableDemo("Crossfade") { CrossfadeDemo() },
         ActivityDemo("Xmas Animation", XmasActivity::class),
