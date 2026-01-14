@@ -21,6 +21,7 @@ import com.ys.composeplayground.ui.animation.FlingDecayDemo
 import com.ys.composeplayground.ui.animation.FlipCardDemo
 import com.ys.composeplayground.ui.animation.InteractiveWaveformDemo
 import com.ys.composeplayground.ui.animation.LiquidSwipeDemo
+import com.ys.composeplayground.ui.animation.LottieIntegrationDemo
 import com.ys.composeplayground.ui.animation.LottieLoadingResultScreen
 import com.ys.composeplayground.ui.animation.MagneticSnapDemo
 import com.ys.composeplayground.ui.animation.MorphingBlobDemo
@@ -122,6 +123,7 @@ val Animation = DemoCategory(
         ComposableDemo("\uD83C\uDFAF Bonus #23: Magnetic Snap (자석 붙기)") { MagneticSnapDemo() },
         ComposableDemo("\uD83C\uDFAF Bonus #24: Breathing Button (숨쉬는 버튼)") { BreathingButtonDemo() },
         ComposableDemo("\uD83C\uDFAF Bonus #25: Domino Effect (도미노 효과)") { DominoEffectDemo() },
+        ComposableDemo("\uD83D\uDCF1 실무 애니메이션 #1: Lottie 통합") { LottieIntegrationDemo() },
         ComposableDemo("LottieLoadingResult") { LottieLoadingResultScreen() },
         ComposableDemo("Crossfade") { CrossfadeDemo() },
         ActivityDemo("Xmas Animation", XmasActivity::class),
