@@ -8,6 +8,7 @@ import com.ys.composeplayground.core.model.data.DarkThemeConfig
 import com.ys.composeplayground.core.model.data.ThemeBrand
 import com.ys.composeplayground.ui.activity.lazycolumn.sectionheader.SectionHeaderLazyColumnActivity
 import com.ys.composeplayground.ui.album.AlbumActivity
+import com.ys.composeplayground.ui.animation.AnimatedVectorDrawableDemo
 import com.ys.composeplayground.ui.animation.BouncyRopeDemo
 import com.ys.composeplayground.ui.animation.BreathingButtonDemo
 import com.ys.composeplayground.ui.animation.ChainedSpringsDemo
@@ -124,6 +125,7 @@ val Animation = DemoCategory(
         ComposableDemo("\uD83C\uDFAF Bonus #24: Breathing Button (숨쉬는 버튼)") { BreathingButtonDemo() },
         ComposableDemo("\uD83C\uDFAF Bonus #25: Domino Effect (도미노 효과)") { DominoEffectDemo() },
         ComposableDemo("\uD83D\uDCF1 실무 애니메이션 #1: Lottie 통합") { LottieIntegrationDemo() },
+        ComposableDemo("\uD83D\uDCF1 실무 애니메이션 #2: Animated Vector Drawable") { AnimatedVectorDrawableDemo() },
         ComposableDemo("LottieLoadingResult") { LottieLoadingResultScreen() },
         ComposableDemo("Crossfade") { CrossfadeDemo() },
         ActivityDemo("Xmas Animation", XmasActivity::class),
