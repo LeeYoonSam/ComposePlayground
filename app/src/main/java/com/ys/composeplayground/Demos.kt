@@ -20,6 +20,7 @@ import com.ys.composeplayground.ui.animation.ExpandableContentDemo
 import com.ys.composeplayground.ui.animation.FadeInOutDemo
 import com.ys.composeplayground.ui.animation.FlingDecayDemo
 import com.ys.composeplayground.ui.animation.FlipCardDemo
+import com.ys.composeplayground.ui.animation.GifWebPAnimationDemo
 import com.ys.composeplayground.ui.animation.InteractiveWaveformDemo
 import com.ys.composeplayground.ui.animation.LiquidSwipeDemo
 import com.ys.composeplayground.ui.animation.LottieIntegrationDemo
@@ -126,6 +127,7 @@ val Animation = DemoCategory(
         ComposableDemo("\uD83C\uDFAF Bonus #25: Domino Effect (도미노 효과)") { DominoEffectDemo() },
         ComposableDemo("\uD83D\uDCF1 실무 애니메이션 #1: Lottie 통합") { LottieIntegrationDemo() },
         ComposableDemo("\uD83D\uDCF1 실무 애니메이션 #2: Animated Vector Drawable") { AnimatedVectorDrawableDemo() },
+        ComposableDemo("\uD83D\uDCF1 실무 애니메이션 #3: GIF/WebP 애니메이션") { GifWebPAnimationDemo() },
         ComposableDemo("LottieLoadingResult") { LottieLoadingResultScreen() },
         ComposableDemo("Crossfade") { CrossfadeDemo() },
         ActivityDemo("Xmas Animation", XmasActivity::class),
