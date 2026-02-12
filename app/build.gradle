@@ -1,10 +1,7 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    id("kotlin-kapt")
-    id("com.google.dagger.hilt.android")
     id("org.jetbrains.kotlin.plugin.compose") version "2.2.21" // 사용하는 코틀린 버전 입력
-    id "com.google.protobuf" version "0.9.6"
 }
 
 android {
@@ -56,25 +53,6 @@ android {
         }
     }
 
-}
-
-// Setup protobuf configuration, generating lite Java and Kotlin classes
-protobuf {
-    protoc {
-        artifact = "com.google.protobuf:protoc:3.24.4"
-    }
-    generateProtoTasks {
-        all().forEach { task ->
-            task.builtins {
-                register("java") {
-                    option("lite")
-                }
-                register("kotlin") {
-                    option("lite")
-                }
-            }
-        }
-    }
 }
 
 dependencies {
@@ -137,19 +115,8 @@ dependencies {
     // Lottie
     implementation 'com.airbnb.android:lottie-compose:6.7.1'
 
-    implementation "androidx.datastore:datastore:1.2.0"
-    implementation "com.google.protobuf:protobuf-javalite:4.33.2"
-
-    implementation("com.google.dagger:hilt-android:2.57.2")
-    kapt("com.google.dagger:hilt-android-compiler:2.57.2")
-
     // for updating the status bar color from Compose
     implementation "com.google.accompanist:accompanist-systemuicontroller:0.36.0"
     // Accompanist (추가 유틸리티) - 필요시
     implementation "com.google.accompanist:accompanist-placeholder:0.36.0"
-}
-
-// Allow references to generated code
-kapt {
-    correctErrorTypes = true
 }

@@ -290,3 +290,14 @@ private fun PreviewSettingsDialogLoading() {
 private const val PRIVACY_POLICY_URL = "https://policies.google.com/privacy"
 private const val BRAND_GUIDELINES_URL = "https://developer.android.com/distribute/marketing-tools/brand-guidelines"
 private const val FEEDBACK_URL = "https://goo.gle/nia-app-feedback"
+
+data class UserEditableSettings(
+    val brand: ThemeBrand,
+    val useDynamicColor: Boolean,
+    val darkThemeConfig: DarkThemeConfig,
+)
+
+sealed interface SettingsUiState {
+    object Loading : SettingsUiState
+    data class Success(val settings: UserEditableSettings) : SettingsUiState
+}

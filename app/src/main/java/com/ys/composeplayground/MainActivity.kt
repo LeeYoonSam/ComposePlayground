@@ -9,9 +9,7 @@ import com.ys.composeplayground.extensions.toast
 import com.ys.composeplayground.ui.common.DemoApp
 import com.ys.composeplayground.ui.common.Navigator
 import com.ys.composeplayground.ui.theme.ComposePlaygroundTheme
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private var backPressed = 0L
