@@ -9,16 +9,29 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
@@ -31,6 +44,9 @@ import com.ys.composeplayground.Tags
 import com.ys.composeplayground.ui.snackbar.SnackbarController
 import com.ys.composeplayground.ui.snackbar.SnackbarControllerProvider
 import com.ys.composeplayground.ui.theme.CustomTypography
+import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.debounce
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Suppress("ComposableLambdaParameterNaming", "ComposableLambdaParameterPosition")
@@ -103,21 +119,65 @@ private fun DisplayDemo(demo: Demo, onNavigate: (Demo) -> Unit) {
     }
 }
 
+@OptIn(FlowPreview::class)
 @Composable
 private fun DisplayDemoCategory(category: DemoCategory, onNavigate: (Demo) -> Unit) {
-    Column(Modifier.verticalScroll(rememberScrollState())) {
-        category.demos.forEach { demo ->
-            ListItem(
-                headlineContent = {
-                    Text(
-                        modifier = Modifier
-                            .height(56.dp)
-                            .wrapContentSize(Alignment.Center),
-                        text = demo.title
-                    )
-                },
-                modifier = Modifier.clickable { onNavigate(demo) }
-            )
+    var searchQuery by rememberSaveable { mutableStateOf("") }
+    var filteredDemos by remember { mutableStateOf(category.demos) }
+
+    LaunchedEffect(category) {
+        snapshotFlow { searchQuery }
+            .debounce(300)
+            .collectLatest { query ->
+                filteredDemos = if (query.isBlank()) {
+                    category.demos
+                } else {
+                    category.demos.flatMap { demo -> searchDemos(demo, query) }
+                }
+            }
+    }
+
+    Column {
+        OutlinedTextField(
+            value = searchQuery,
+            onValueChange = { searchQuery = it },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 8.dp),
+            placeholder = { Text("검색") },
+            leadingIcon = { Icon(Icons.Default.Search, contentDescription = "검색") },
+            trailingIcon = {
+                if (searchQuery.isNotEmpty()) {
+                    IconButton(onClick = { searchQuery = "" }) {
+                        Icon(Icons.Default.Close, contentDescription = "지우기")
+                    }
+                }
+            },
+            singleLine = true,
+        )
+
+        Column(Modifier.verticalScroll(rememberScrollState())) {
+            filteredDemos.forEach { demo ->
+                ListItem(
+                    headlineContent = {
+                        Text(
+                            modifier = Modifier
+                                .height(56.dp)
+                                .wrapContentSize(Alignment.Center),
+                            text = demo.title
+                        )
+                    },
+                    modifier = Modifier.clickable { onNavigate(demo) }
+                )
+            }
         }
+    }
+}
+
+private fun searchDemos(demo: Demo, query: String): List<Demo> {
+    val lowerQuery = query.lowercase()
+    return when (demo) {
+        is DemoCategory -> demo.demos.flatMap { searchDemos(it, query) }
+        else -> if (demo.title.lowercase().contains(lowerQuery)) listOf(demo) else emptyList()
     }
 }
