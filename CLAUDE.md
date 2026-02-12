@@ -67,35 +67,47 @@ The app uses a hierarchical demo catalog system defined in `Demos.kt`:
 
 **UI Organization**:
 - `ui/` - Organized by feature/component type:
-  - `animation/` - Crossfade, Lottie examples
-  - `foundation/` - Basic Compose components (LazyColumn, Canvas, Text, Image, etc.)
-  - `material/` - Material Design components (Button, Card, Dialog, etc.)
-  - `custom/` - Custom composables (Filter, Timeline, OrderStatus)
+  - `activity/` - Activity 기반 데모
+  - `album/` - 앨범 UI
+  - `animation/` - 애니메이션 데모 (Crossfade, Lottie, GIF/WebP, AnimatedVectorDrawable, 30+ 예제)
   - `canvas/` - Custom canvas drawing examples
-  - `modifier/` - Modifier demonstrations (Lookahead)
-  - `sample/` - Full-screen sample apps (Payment, Photo, Drawing)
-  - `theme/` - Theme definitions (Color, Typography, Shape)
+  - `clone/` - UI 클론 구현 (Capturable 등)
   - `common/` - Shared UI components and navigation
+  - `custom/` - Custom composables (Filter, Timeline, OrderStatus)
+  - `dialog/` - 다이얼로그 데모
+  - `foundation/` - Basic Compose components (LazyColumn, Canvas, Text, Image, etc.)
+  - `grid/` - 그리드/칩 컴포넌트
+  - `keyboard/` - 키보드 핸들링 데모
+  - `lazycolumn/` - LazyColumn 데모 (Netflix 툴바 등)
+  - `material/` - Material Design components (Button, Card, Dialog, etc.)
+  - `modifier/` - Modifier demonstrations (Lookahead)
+  - `navigation/` - 네비게이션 데모
+  - `sample/` - Full-screen sample apps (Payment, Photo, Drawing)
+  - `scroll/` - 스크롤 데모
+  - `snackbar/` - Snackbar 데모
+  - `stat/` - 통계 화면
+  - `theme/` - Theme definitions (Color, Typography, Shape)
 
 ### Key Technologies
 
-- **Compose BOM**: `2024.09.00` - Material, Material3, Foundation, UI
-- **Kotlin**: 1.9.20
-- **AGP**: 8.2.2
+- **Compose BOM**: `2025.12.01` - Material3, Foundation, UI
+- **Kotlin**: 2.2.21
+- **Kotlin Compose Plugin**: 2.2.21 (Kotlin 2.0+ 이후 별도 플러그인)
+- **AGP**: 8.13.2
 - **Coroutines**: 1.7.3
-- **Hilt**: 2.51.1
-- **Lottie**: 6.4.1 for animations
-- **Coil**: 2.6.0 for image loading
-- **DataStore**: 1.1.1 with Protobuf
-- **Accompanist**: System UI controller (0.23.1)
+- **Hilt**: 2.57.2
+- **Lottie**: 6.7.1 for animations
+- **Coil**: 2.7.0 for image loading (GIF 지원 포함)
+- **DataStore**: 1.2.0 with Protobuf
+- **Accompanist**: System UI controller, Placeholder (0.36.0)
 
 ### Build Configuration
 
 - **Min SDK**: 26
-- **Target SDK**: 35
-- **Compile SDK**: 35
+- **Target SDK**: 36
+- **Compile SDK**: 36
 - **Java**: 17 (toolchain)
-- **Protobuf**: Configured to generate lite Java and Kotlin classes
+- **Protobuf**: Configured to generate lite Java and Kotlin classes (plugin 0.9.6)
 
 ## Adding New Demos
 
@@ -108,22 +120,22 @@ The app uses a hierarchical demo catalog system defined in `Demos.kt`:
 
 ## Theme System
 
-The app uses a custom theme system (`ComposePlaygroundTheme` in `ui/theme/`):
+The app uses a custom theme system (`ComposePlaygroundTheme` in `ui/theme/`) based on **Material3**:
+- Material3 color scheme (`darkColorScheme`, `lightColorScheme`)
 - Custom typography with `MyTypography` and tokens
 - Color definitions in `Color.kt`
 - Material shapes in `Shape.kt`
-- `LocalMyTypography` CompositionLocal for custom typography access
+- `LocalTypography` CompositionLocal for custom typography access
 
 ## Known Configuration Notes
 
-From the README, there were version compatibility issues during development:
-- BadgeBox requires Material 1.1.1+
-- Compose version updates require corresponding Kotlin version updates
-- Current versions are stable: Compose 1.5.4, Kotlin 1.9.20
+- Kotlin 2.0+ 이후 Compose 컴파일러 플러그인이 Kotlin 플러그인(`org.jetbrains.kotlin.plugin.compose`)으로 분리됨
+- Compose BOM 버전 업데이트 시 호환 Kotlin 버전 확인 필요
+- Material에서 Material3로 마이그레이션 완료
 
 ## Testing
 
 Test files are minimal:
-- Unit tests: `app/src/test/java/`
+- Unit tests: `app/src/test/java/` (kotlinx-coroutines-test, TestScope 활용)
 - Instrumented tests: `app/src/androidTest/java/`
 - UI tests use Compose testing libraries (included in dependencies)
