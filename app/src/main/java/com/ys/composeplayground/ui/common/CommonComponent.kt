@@ -32,6 +32,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.saveable.rememberSaveableStateHolder
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
@@ -101,9 +102,13 @@ private fun DemoContent(
     currentDemo: Demo,
     onNavigate: (Demo) -> Unit
 ) {
+    val saveableStateHolder = rememberSaveableStateHolder()
+
     Crossfade(targetState = currentDemo, label = "") { demo ->
         Surface(modifier.fillMaxWidth(), color = MaterialTheme.colorScheme.background) {
-            DisplayDemo(demo, onNavigate)
+            saveableStateHolder.SaveableStateProvider(key = demo.title) {
+                DisplayDemo(demo, onNavigate)
+            }
         }
     }
 }
@@ -123,7 +128,12 @@ private fun DisplayDemo(demo: Demo, onNavigate: (Demo) -> Unit) {
 @Composable
 private fun DisplayDemoCategory(category: DemoCategory, onNavigate: (Demo) -> Unit) {
     var searchQuery by rememberSaveable { mutableStateOf("") }
-    var filteredDemos by remember { mutableStateOf(category.demos) }
+    var filteredDemos by remember {
+        mutableStateOf(
+            if (searchQuery.isBlank()) category.demos
+            else category.demos.flatMap { demo -> searchDemos(demo, searchQuery) }
+        )
+    }
 
     LaunchedEffect(category) {
         snapshotFlow { searchQuery }
