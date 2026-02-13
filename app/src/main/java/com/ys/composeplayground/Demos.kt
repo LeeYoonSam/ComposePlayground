@@ -41,6 +41,7 @@ import com.ys.composeplayground.ui.animation.SwipeToDismissDemo
 import com.ys.composeplayground.ui.animation.xmas.XmasActivity
 import com.ys.composeplayground.ui.canvas.DynamicStampScreen
 import com.ys.composeplayground.ui.canvas.MovingCircleMenuCanvas
+import com.ys.composeplayground.ui.commerce.SaleTabScreen
 import com.ys.composeplayground.ui.custom.filter.FilterScreen
 import com.ys.composeplayground.ui.custom.orderstatus.OrderStatusScreen
 import com.ys.composeplayground.ui.custom.timeline.TimelineScreen
@@ -294,6 +295,13 @@ val ScrollTimerDemos = DemoCategory(
     )
 )
 
+val CommerceDemos = DemoCategory(
+    "Commerce",
+    listOf(
+        ComposableDemo("Sale Tab (세일 탭)") { SaleTabScreen() },
+    )
+)
+
 val AllDemosCategory = DemoCategory(
     "Jetpack Compose Playground Demos",
     listOf(
@@ -308,5 +316,6 @@ val AllDemosCategory = DemoCategory(
         CanvasDemos,
         CustomDemos,
         ScrollTimerDemos,
+        CommerceDemos,
     )
 )
