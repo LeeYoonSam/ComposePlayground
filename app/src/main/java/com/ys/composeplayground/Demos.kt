@@ -97,6 +97,8 @@ import com.ys.composeplayground.ui.scroll.TimerCircleComponent
 import com.ys.composeplayground.ui.scroll.TimerComponent
 import com.ys.composeplayground.ui.scroll.timer.ScrollTimerActivity
 import com.ys.composeplayground.ui.scroll.timer.ScrollTimerComposeActivity
+import com.ys.composeplayground.ui.text.StyledString
+import com.ys.composeplayground.ui.text.StyledTextDemo
 
 val Animation = DemoCategory(
     "Animations",
@@ -155,6 +157,13 @@ val FoundationDemos = DemoCategory(
         ComposableDemo("FlowRow") { SimpleFlowRow() },
         ComposableDemo("FlowRow - weight") { SimpleFlowRowWithWeights() },
         ComposableDemo("Grid - Chip") { GridChipScreenDemo() },
+    )
+)
+
+val TextDemos = DemoCategory(
+    "Texts",
+    listOf(
+        ComposableDemo("StyledText") { StyledTextDemo() },
     )
 )
 
@@ -307,6 +316,7 @@ val AllDemosCategory = DemoCategory(
     listOf(
         Animation,
         FoundationDemos,
+        TextDemos,
         ModifierDemos,
         DialogDemos,
         MaterialDemos,
